@@ -240,40 +240,11 @@ function FragmentRow({ a, b }: { a: string; b: string }) {
 
 /* ---------------------------------- HOW --------------------------------- */
 function How() {
-  const steps = [
-    ["Concept Understanding", "Anchor the idea in clarity, not memory."],
-    ["Visualisation", "Make the invisible visible — diagrams, models, motion."],
-    ["Real-World Connection", "Tie every concept to lived reality."],
-    ["Experiential Activity", "Let students do, build, and discover."],
-    ["Reflection & Reinforcement", "Convert experience into permanent insight."],
-    ["Competence Building", "Application, confidence, transfer."],
-  ];
   return (
     <Section id="how" eyebrow="The framework" title={<>Six steps from <em className="text-primary not-italic">concept</em> to competence.</>}
-      lead="A repeatable, measurable rhythm any teacher can run — designed with educators, not for them.">
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {steps.map(([t, d], i) => (
-          <div key={t} className="group relative bg-card border border-border rounded-2xl p-7 hover:border-primary/40 transition-all hover:-translate-y-1 duration-500" style={{ boxShadow: "var(--shadow-soft)" }}>
-            <div className="flex items-center justify-between">
-              <span className="text-xs tabular-nums text-muted-foreground">STEP · {String(i + 1).padStart(2, "0")}</span>
-              <StepGlyph i={i} />
-            </div>
-            <h3 className="mt-6 font-display text-2xl">{t}</h3>
-            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{d}</p>
-            <div className="absolute inset-x-7 bottom-5 h-px bg-gradient-to-r from-primary/30 via-accent/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-          </div>
-        ))}
-      </div>
+      lead="Scroll. The framework reveals itself the same way a Kriyasetu lesson does — one node at a time, each building on the last.">
+      <FrameworkScroll />
     </Section>
-  );
-}
-function StepGlyph({ i }: { i: number }) {
-  return (
-    <svg viewBox="0 0 36 36" className="h-9 w-9">
-      <circle cx="18" cy="18" r="16" fill="none" stroke="var(--brand-blue)" strokeOpacity=".15" />
-      <circle cx="18" cy="18" r={4 + i} fill="none" stroke="var(--brand-blue)" strokeOpacity=".5" />
-      <circle cx="18" cy="18" r="2" fill="var(--brand-orange)" />
-    </svg>
   );
 }
 
