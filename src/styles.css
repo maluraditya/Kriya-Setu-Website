@@ -106,4 +106,20 @@
     background-image: radial-gradient(rgba(0,0,0,.6) 1px, transparent 1px); background-size: 3px 3px;
   }
   .hairline { border-top: 1px solid var(--color-border); }
+
+  /* TeacherScroll step content slide-in animation */
+  .ts-step-content {
+    animation: ts-in 0.55s cubic-bezier(.2,.8,.2,1) both;
+  }
+  @keyframes ts-in {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  /* Scroll hint fade */
+  .ts-scroll-hint { animation: ts-hint-fade 2.4s ease-in-out infinite; }
+  @keyframes ts-hint-fade { 0%,100%{opacity:.4} 50%{opacity:.9} }
+
+  /* Hero canvas pointer-events passthrough */
+  .hero-canvas-wrap { pointer-events: none; }
 }

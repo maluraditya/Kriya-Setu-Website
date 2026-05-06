@@ -2,7 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { Yantra } from "@/components/site/Yantra";
-import { PendulumLab } from "@/components/site/PendulumLab";
+import { WaveInterferenceLab } from "@/components/site/WaveInterferenceLab";
+import { HeroCanvas } from "@/components/site/HeroCanvas";
+import { TeacherScroll } from "@/components/site/TeacherScroll";
 import { FrameworkScroll } from "@/components/site/FrameworkScroll";
 import transformationImg from "@/assets/transformation.jpg";
 
@@ -37,9 +39,28 @@ function Index() {
       <Hero />
       <Marquee />
       <Problem />
+      <TeacherScroll />
+      <MidCTA
+        heading="Ready to see the shift in your classrooms?"
+        sub="Join institutions already moving from memorisation to mastery."
+        primary={{ label: "Book a Demo", href: "#cta" }}
+        secondary={{ label: "See How It Works", href: "#how" }}
+      />
       <Shift />
       <Experience />
+      <MidCTA
+        heading="Bring this into your institution."
+        sub="Every subject. Every grade. The same depth of experience."
+        primary={{ label: "Partner With Us", href: "#cta" }}
+        secondary={{ label: "Explore the Framework", href: "#how" }}
+        accent
+      />
       <How />
+      <MidCTA
+        heading="Your students deserve to own what they learn."
+        sub="Let's build a learning system designed around your institution."
+        primary={{ label: "Schedule a Conversation", href: "#cta" }}
+      />
       <AI />
       <WhyInstitutions />
       <Vision />
@@ -53,25 +74,38 @@ function Index() {
 function Experience() {
   return (
     <section id="experience" className="relative py-28 md:py-36 overflow-hidden">
-      <div aria-hidden className="absolute inset-x-0 -top-1/3 h-[120%] -z-10 opacity-60"
-        style={{ background: "radial-gradient(60% 50% at 70% 30%, color-mix(in oklab, var(--accent) 12%, transparent), transparent 70%)" }} />
+      <div
+        aria-hidden
+        className="absolute inset-x-0 -top-1/3 h-[120%] -z-10 opacity-70"
+        style={{
+          background:
+            "radial-gradient(60% 50% at 65% 30%, color-mix(in oklab, var(--accent) 10%, transparent), transparent 70%)",
+        }}
+      />
       <div className="container-px mx-auto max-w-7xl">
         <div className="max-w-2xl mb-12">
           <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
-            <span className="inline-block h-px w-8 align-middle bg-accent mr-3" />Experience it · not slides
+            <span className="inline-block h-px w-8 align-middle bg-accent mr-3" />
+            Physics · Wave Interference · Live
           </p>
           <h2 className="mt-5 font-display text-4xl md:text-5xl leading-[1.05] tracking-tight">
-            Most sites <em className="text-muted-foreground/70 not-italic line-through">describe</em> learning.
+            Most sites{" "}
+            <em className="text-muted-foreground/60 not-italic line-through">
+              describe
+            </em>{" "}
+            learning.
             <br />
-            We let you <em className="text-accent not-italic">do</em> it.
+            We let you <em className="text-accent not-italic">feel</em> it.
           </h2>
           <p className="mt-5 text-muted-foreground text-lg leading-relaxed">
-            A live classroom moment, embedded right here. Move the sliders.
-            Notice what your hands understood before your head caught up.
-            That moment — that's the entire Kriyasetu method.
+            Below is a live physics simulation — the same type of immersive
+            experience Kriyasetu brings into every classroom. Drag the sliders.
+            Watch the universe respond. That moment of{" "}
+            <span className="text-foreground italic">"oh — I get it"</span> is
+            the entire Kriyasetu method.
           </p>
         </div>
-        <PendulumLab />
+        <WaveInterferenceLab />
       </div>
     </section>
   );
@@ -79,58 +113,134 @@ function Experience() {
 
 /* --------------------------------- HERO --------------------------------- */
 function Hero() {
+  const steps = [
+    { num: "01", label: "Concept", desc: "Understand the why", symbol: "◉" },
+    { num: "02", label: "Visualise", desc: "See it clearly", symbol: "◈" },
+    { num: "03", label: "Experience", desc: "Do it yourself", symbol: "◆" },
+    { num: "04", label: "Competence", desc: "Own it forever", symbol: "●" },
+  ];
+
   return (
-    <section className="relative overflow-hidden pt-28 md:pt-36 pb-20 md:pb-32">
-      <div aria-hidden className="absolute inset-0 -z-10">
-        <Yantra className="absolute -right-32 -top-20 w-[820px] opacity-90 float-slow" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-20 pb-16">
+      {/* Background layer */}
+      <div aria-hidden className="absolute inset-0 -z-10 overflow-hidden hero-canvas-wrap">
+        {/* Live particle network — mouse-reactive knowledge graph */}
+        <HeroCanvas />
+        {/* Warm ambient glows underneath */}
+        <div
+          className="absolute top-1/3 right-1/3 w-[700px] h-[700px] rounded-full opacity-25 pointer-events-none"
+          style={{ background: "radial-gradient(circle, color-mix(in oklab, var(--accent) 22%, transparent), transparent 65%)" }}
+        />
+        <div
+          className="absolute bottom-1/4 left-1/5 w-[500px] h-[500px] rounded-full opacity-15 pointer-events-none"
+          style={{ background: "radial-gradient(circle, color-mix(in oklab, var(--primary) 18%, transparent), transparent 65%)" }}
+        />
+        {/* Yantra — softer, float */}
+        <Yantra className="absolute -right-48 -top-24 w-[900px] opacity-40 float-slow pointer-events-none" />
+        {/* Vignette fade to bg at bottom */}
+        <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-background to-transparent pointer-events-none" />
+        {/* Subtle top fade */}
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background/60 to-transparent pointer-events-none" />
       </div>
-      <div className="container-px mx-auto max-w-7xl">
-        <div className="max-w-3xl">
-          <p className="reveal inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-muted-foreground">
-            <span className="h-px w-8 bg-accent" />
-            Experiential Learning · Conceptual Clarity · AI
-          </p>
-          <h1 className="reveal reveal-delay-1 mt-6 font-display text-5xl sm:text-6xl md:text-7xl leading-[1.02] tracking-tight">
-            Bridging <em className="not-italic text-primary">knowledge</em> and
-            <br className="hidden sm:block" />
-            real <span className="relative">
-              competence
-              <svg className="absolute -bottom-2 left-0 w-full" height="10" viewBox="0 0 200 10" preserveAspectRatio="none">
-                <path d="M2 7 Q 60 1 120 6 T 198 4" stroke="var(--brand-orange)" strokeWidth="2" fill="none" strokeLinecap="round" />
-              </svg>
-            </span>.
-          </h1>
-          <p className="reveal reveal-delay-2 mt-7 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-            Kriyasetu helps institutions transform teaching and learning through
-            experiential systems, conceptual clarity, and AI-enabled education —
-            so students don’t just memorise, they understand, apply, and grow.
-          </p>
-          <div className="reveal reveal-delay-3 mt-9 flex flex-wrap items-center gap-3">
-            <a href="#cta" className="group inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3.5 text-sm font-medium hover:bg-primary/90 transition-colors">
-              Book a Demo
-              <span className="transition-transform group-hover:translate-x-0.5">→</span>
-            </a>
-            <a href="#cta" className="inline-flex items-center gap-2 rounded-full border border-foreground/15 px-6 py-3.5 text-sm font-medium hover:border-foreground/40 transition-colors">
-              Partner With Us
-            </a>
-          </div>
+
+      <div className="container-px mx-auto max-w-7xl flex-1 flex flex-col justify-center">
+        {/* Eyebrow */}
+        <p className="reveal inline-flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-muted-foreground">
+          <span className="h-px w-8 bg-accent flex-shrink-0" />
+          Experiential Learning · Conceptual Clarity · AI
+        </p>
+
+        {/* Headline */}
+        <h1 className="reveal reveal-delay-1 mt-6 font-display text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] leading-[1.01] tracking-tight max-w-4xl">
+          Where knowing
+          <br />
+          becomes{" "}
+          <span className="relative inline-block">
+            <span style={{ color: "var(--brand-orange)" }}>doing.</span>
+            <svg
+              className="absolute -bottom-2 left-0 w-full"
+              height="10"
+              viewBox="0 0 200 10"
+              preserveAspectRatio="none"
+            >
+              <path
+                d="M2 7 Q 60 1 120 6 T 198 4"
+                stroke="var(--brand-orange)"
+                strokeWidth="2.5"
+                fill="none"
+                strokeLinecap="round"
+                opacity="0.5"
+              />
+            </svg>
+          </span>
+        </h1>
+
+        {/* Sub */}
+        <p className="reveal reveal-delay-2 mt-7 text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed">
+          The experiential learning platform that turns abstract concepts into
+          visceral, unforgettable understanding — for every student, every class.
+        </p>
+
+        {/* CTAs */}
+        <div className="reveal reveal-delay-3 mt-9 flex flex-wrap items-center gap-3">
+          <a
+            href="#experience"
+            className="group inline-flex items-center gap-2 rounded-full px-7 py-4 text-sm font-medium transition-all hover:gap-3"
+            style={{ background: "var(--brand-orange)", color: "#fff" }}
+          >
+            Experience it live
+            <span className="transition-transform group-hover:translate-x-0.5">→</span>
+          </a>
+          <a
+            href="#cta"
+            className="inline-flex items-center gap-2 rounded-full border border-foreground/15 px-7 py-4 text-sm font-medium hover:border-foreground/40 transition-colors"
+          >
+            Book a Demo
+          </a>
+          <a
+            href="#teacher-story"
+            className="hidden sm:inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            See the teacher story ↓
+          </a>
         </div>
 
-        <div className="reveal reveal-delay-3 mt-20 grid grid-cols-2 md:grid-cols-4 gap-px bg-border rounded-2xl overflow-hidden border border-border">
-          {[
-            ["Concept", "Understand"],
-            ["Visualise", "See it clearly"],
-            ["Experience", "Do it"],
-            ["Competence", "Own it"],
-          ].map(([k, v], i) => (
-            <div key={k} className="bg-background px-6 py-7">
-              <div className="text-xs text-muted-foreground tabular-nums">0{i + 1}</div>
-              <div className="mt-2 font-display text-xl">{k}</div>
-              <div className="text-sm text-muted-foreground mt-1">{v}</div>
+        {/* Social proof */}
+        <p className="reveal reveal-delay-3 mt-6 text-xs text-muted-foreground/70">
+          Trusted by schools, PU colleges & NEET/JEE institutions across India &amp; GCC
+        </p>
+
+        {/* Journey steps — visual cards */}
+        <div className="reveal reveal-delay-3 mt-16 md:mt-20 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+          {steps.map(({ num, label, desc, symbol }, i) => (
+            <div
+              key={label}
+              className="relative group rounded-2xl border border-border bg-card/60 backdrop-blur-sm px-5 py-6 md:px-6 md:py-7 hover:border-accent/40 hover:bg-card transition-all duration-300 cursor-default"
+            >
+              {/* Connector arrow on desktop */}
+              {i < 3 && (
+                <div className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-10 items-center justify-center w-8 h-8 rounded-full bg-background border border-border text-muted-foreground/40 text-xs">
+                  →
+                </div>
+              )}
+              <div
+                className="text-2xl mb-3 transition-transform duration-300 group-hover:scale-110 origin-left"
+                style={{ opacity: 0.3 + i * 0.25, color: i >= 2 ? "var(--brand-orange)" : "var(--brand-blue)" }}
+              >
+                {symbol}
+              </div>
+              <div className="text-[10px] text-muted-foreground tabular-nums tracking-widest">{num}</div>
+              <div className="mt-1 font-display text-lg md:text-xl">{label}</div>
+              <div className="text-xs md:text-sm text-muted-foreground mt-1">{desc}</div>
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Scroll cue */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-muted-foreground/40 animate-bounce pointer-events-none">
+        <span className="text-[10px] uppercase tracking-widest">Scroll</span>
+        <span className="text-base">↓</span>
       </div>
     </section>
   );
@@ -178,61 +288,108 @@ function Problem() {
 }
 
 /* --------------------------------- SHIFT -------------------------------- */
+const SHIFT_ITEMS = [
+  { icon: "📖", category: "Engagement",   before: "Passive listening",    after: "Experiential learning",     stat: "3×" },
+  { icon: "🧠", category: "Retention",    before: "Rote memorisation",    after: "Conceptual understanding",  stat: "60%" },
+  { icon: "🔗", category: "Consistency",  before: "Isolated teaching",    after: "Structured systems",        stat: "≡" },
+  { icon: "🌍", category: "Application",  before: "Theory only",          after: "Real-world application",    stat: "↗" },
+  { icon: "⚡", category: "Energy",       before: "Lecture-heavy classes", after: "Learning experiences",     stat: "∞" },
+];
+
 function Shift() {
-  const rows: [string, string][] = [
-    ["Passive listening", "Experiential learning"],
-    ["Memorisation", "Conceptual understanding"],
-    ["Isolated teaching", "Structured systems"],
-    ["Theory only", "Real-world application"],
-    ["Lectures", "Learning experiences"],
-  ];
   return (
-    <section id="shift" className="relative py-28 md:py-36 bg-[color:var(--brand-ink)] text-background">
-      <div className="container-px mx-auto max-w-7xl grid lg:grid-cols-12 gap-14 items-center">
-        <div className="lg:col-span-5">
-          <p className="text-xs uppercase tracking-[0.22em] text-background/60">The Shift</p>
-          <h2 className="mt-5 font-display text-4xl md:text-5xl leading-[1.05]">
-            From teaching concepts to <em className="not-italic text-accent">building competence.</em>
-          </h2>
-          <p className="mt-6 text-background/70 leading-relaxed max-w-md">
-            Kriyasetu reframes the classroom as a journey. Every concept becomes
-            an experience — visualised, applied, and reflected upon — until it
-            settles as real understanding.
-          </p>
-          <img
-            src={transformationImg}
-            alt="Teacher leading an experiential classroom"
-            loading="lazy"
-            width={1280}
-            height={960}
-            className="mt-10 rounded-xl border border-white/10 hidden lg:block"
-          />
-        </div>
-        <div className="lg:col-span-7">
-          <div className="grid grid-cols-[1fr_auto_1fr] gap-x-6 gap-y-3 items-stretch">
-            <div className="text-xs uppercase tracking-[0.22em] text-background/50 pb-2">Before</div>
-            <div />
-            <div className="text-xs uppercase tracking-[0.22em] text-accent pb-2">With Kriyasetu</div>
-            {rows.map(([a, b], i) => (
-              <FragmentRow key={i} a={a} b={b} />
-            ))}
+    <section id="shift" className="relative py-28 md:py-36 bg-[color:var(--brand-ink)] text-background overflow-hidden">
+      {/* Subtle yantra in background */}
+      <div aria-hidden className="absolute -right-32 top-1/2 -translate-y-1/2 opacity-[0.04] pointer-events-none">
+        <Yantra className="w-[600px]" />
+      </div>
+
+      <div className="container-px mx-auto max-w-7xl">
+        {/* Header */}
+        <div className="grid lg:grid-cols-12 gap-10 mb-14 items-end">
+          <div className="lg:col-span-6">
+            <p className="text-xs uppercase tracking-[0.22em] text-background/50">The Shift</p>
+            <h2 className="mt-5 font-display text-4xl md:text-5xl leading-[1.05]">
+              From teaching concepts to{" "}
+              <em className="not-italic text-accent">building competence.</em>
+            </h2>
           </div>
+          <div className="lg:col-span-6">
+            <p className="text-background/60 leading-relaxed">
+              Kriyasetu reframes the classroom as a journey. Every concept becomes
+              an experience — visualised, applied, and reflected upon — until it
+              settles as real, owned understanding.
+            </p>
+          </div>
+        </div>
+
+        {/* Transformation cards — scannable on mobile */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {SHIFT_ITEMS.map(({ icon, category, before, after, stat }) => (
+            <ShiftCard key={category} icon={icon} category={category} before={before} after={after} stat={stat} />
+          ))}
+          {/* Photo card */}
+          <div className="sm:col-span-2 lg:col-span-1 relative rounded-2xl overflow-hidden border border-white/10 min-h-[200px]">
+            <img
+              src={transformationImg}
+              alt="Teacher leading an experiential classroom"
+              loading="lazy"
+              width={1280}
+              height={960}
+              className="absolute inset-0 w-full h-full object-cover opacity-60"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[var(--brand-ink)] via-transparent to-transparent" />
+            <div className="absolute bottom-5 left-5 right-5">
+              <p className="text-sm text-background/80 leading-snug">
+                "The moment a student <em className="text-accent not-italic">experiences</em> a concept — they own it."
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Column labels — compact, below cards */}
+        <div className="mt-6 flex items-center gap-6 text-xs uppercase tracking-[0.2em]">
+          <span className="flex items-center gap-2 text-background/40">
+            <span className="h-3 w-3 rounded-sm border border-white/20 bg-white/5" />
+            Before
+          </span>
+          <span className="text-background/30">→</span>
+          <span className="flex items-center gap-2 text-accent">
+            <span className="h-3 w-3 rounded-sm border border-accent/40 bg-accent/10" />
+            With Kriyasetu
+          </span>
         </div>
       </div>
     </section>
   );
 }
-function FragmentRow({ a, b }: { a: string; b: string }) {
+
+function ShiftCard({
+  icon, category, before, after, stat,
+}: {
+  icon: string; category: string; before: string; after: string; stat: string;
+}) {
   return (
-    <>
-      <div className="rounded-xl border border-white/10 bg-white/[0.02] px-5 py-5 text-background/70 line-through decoration-white/20">
-        {a}
+    <div className="rounded-2xl border border-white/8 bg-white/[0.03] overflow-hidden group hover:border-accent/30 transition-all duration-300">
+      {/* Top: category */}
+      <div className="px-5 pt-5 pb-3 flex items-center gap-2.5">
+        <span className="text-xl">{icon}</span>
+        <span className="text-xs uppercase tracking-[0.2em] text-background/50">{category}</span>
+        <span className="ml-auto text-sm font-display text-accent/60">{stat}</span>
       </div>
-      <div className="self-center text-accent">→</div>
-      <div className="rounded-xl border border-accent/40 bg-accent/[0.06] px-5 py-5 text-background">
-        {b}
+      {/* Before */}
+      <div className="mx-4 mb-2 px-4 py-3 rounded-xl border border-white/8 bg-white/[0.02]">
+        <div className="text-[10px] uppercase tracking-widest text-background/30 mb-1">Before</div>
+        <p className="text-background/50 text-sm line-through decoration-white/20">{before}</p>
       </div>
-    </>
+      {/* Arrow */}
+      <div className="flex justify-center py-1 text-accent/40 text-lg group-hover:text-accent transition-colors">↓</div>
+      {/* After */}
+      <div className="mx-4 mb-5 px-4 py-3 rounded-xl border border-accent/25 bg-accent/[0.06]">
+        <div className="text-[10px] uppercase tracking-widest text-accent/60 mb-1">With Kriyasetu</div>
+        <p className="text-background text-sm font-medium">{after}</p>
+      </div>
+    </div>
   );
 }
 
@@ -367,6 +524,52 @@ function CTA() {
         </div>
       </div>
     </section>
+  );
+}
+
+/* ------------------------------- MID CTA -------------------------------- */
+function MidCTA({
+  heading,
+  sub,
+  primary,
+  secondary,
+  accent: isAccent = false,
+}: {
+  heading: string;
+  sub: string;
+  primary: { label: string; href: string };
+  secondary?: { label: string; href: string };
+  accent?: boolean;
+}) {
+  return (
+    <div className={`${isAccent ? "bg-secondary/60" : ""} py-14 md:py-16`}>
+      <div className="container-px mx-auto max-w-7xl">
+        <div className="rounded-2xl border border-border bg-card px-8 py-10 md:px-14 md:py-12 flex flex-col md:flex-row md:items-center gap-8 justify-between">
+          <div className="max-w-xl">
+            <h3 className="font-display text-2xl md:text-3xl leading-snug">{heading}</h3>
+            <p className="mt-2 text-muted-foreground text-base leading-relaxed">{sub}</p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
+            <a
+              href={primary.href}
+              className="group inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium transition-all hover:gap-3"
+              style={{ background: "var(--brand-orange)", color: "#fff" }}
+            >
+              {primary.label}
+              <span className="transition-transform group-hover:translate-x-0.5">→</span>
+            </a>
+            {secondary && (
+              <a
+                href={secondary.href}
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-foreground/15 px-7 py-3.5 text-sm font-medium hover:border-foreground/40 transition-colors"
+              >
+                {secondary.label}
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
