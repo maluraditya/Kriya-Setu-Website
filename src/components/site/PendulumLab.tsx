@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
 
 /**
  * Live pendulum simulation. Visitors tweak length / gravity / damping
@@ -142,14 +141,9 @@ export function PendulumLab() {
           ))}
         </div>
 
-        <motion.p
-          key={period}
-          initial={{ opacity: 0, y: 4 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-xs text-muted-foreground mt-1"
-        >
+        <p className="text-xs text-muted-foreground mt-1">
           Insight · Halve the length → period shrinks by √2, not 2. That's the lesson — discovered, not told.
-        </motion.p>
+        </p>
       </div>
     </div>
   );
