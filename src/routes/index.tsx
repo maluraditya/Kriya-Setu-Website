@@ -1,7 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useRef } from "react";
+import { motion, useScroll, useTransform, useSpring, useMotionValue } from "framer-motion";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { Yantra } from "@/components/site/Yantra";
+import { PendulumLab } from "@/components/site/PendulumLab";
+import { FrameworkScroll } from "@/components/site/FrameworkScroll";
 import transformationImg from "@/assets/transformation.jpg";
 
 export const Route = createFileRoute("/")({
