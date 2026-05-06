@@ -277,35 +277,6 @@ function AI() {
   );
 }
 
-/* ------------------------------- WORKSHOPS ------------------------------ */
-function Workshops() {
-  const list = [
-    ["Design Thinking", "Teachers as designers of learning."],
-    ["AI in Education", "Hands-on, demystified, classroom-ready."],
-    ["Faculty Enablement", "Teaching craft, framework fluency, confidence."],
-    ["Student Innovation", "From curiosity to working prototypes."],
-    ["Problem Solving", "Frameworks for thinking, not just answering."],
-    ["Interactive Learning Models", "Concept-first, experience-led classroom systems."],
-  ];
-  return (
-    <Section id="workshops" eyebrow="Experiences" title={<>Workshops that <em className="text-primary not-italic">change classrooms.</em></>}
-      lead="Immersive sessions for faculty and students — built to leave behind systems, not slides.">
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {list.map(([t, d], i) => (
-          <article key={t} className="group relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-card to-secondary/40 p-7 hover:border-accent/40 transition-colors">
-            <span className="text-xs tabular-nums text-muted-foreground">— {String(i + 1).padStart(2, "0")}</span>
-            <h3 className="mt-3 font-display text-2xl">{t}</h3>
-            <p className="mt-2 text-sm text-muted-foreground">{d}</p>
-            <span className="mt-6 inline-flex items-center gap-1.5 text-sm text-primary group-hover:text-accent transition-colors">
-              Explore <span className="transition-transform group-hover:translate-x-1">→</span>
-            </span>
-          </article>
-        ))}
-      </div>
-    </Section>
-  );
-}
-
 /* ------------------------------- WHY INST ------------------------------- */
 function WhyInstitutions() {
   const stats: [string, string, string][] = [
