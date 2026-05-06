@@ -1,6 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useRef } from "react";
-import { motion, useScroll, useTransform, useSpring, useMotionValue } from "framer-motion";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { Yantra } from "@/components/site/Yantra";
