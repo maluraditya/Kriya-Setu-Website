@@ -14,7 +14,7 @@ export function Footer() {
             conceptual clarity, and AI-enabled education.
           </p>
         </div>
-        <FooterCol title="Explore" items={[["About", "#vision"], ["Workshops", "#workshops"], ["Institutions", "#why"], ["How it works", "#how"]]} />
+        <FooterCol title="Explore" items={[["About", "#vision"], ["Experience", "#experience"], ["Institutions", "#why"], ["How it works", "#how"]]} />
         <FooterCol title="Connect" items={[["Contact", "#cta"], ["LinkedIn", "#"], ["hello@kriyasetu.com", "mailto:hello@kriyasetu.com"]]} />
         <div className="md:col-span-2">
           <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Sutra</div>

@@ -5,7 +5,7 @@ const links = [
   { href: "#shift", label: "The Shift" },
   { href: "#how", label: "How It Works" },
   { href: "#ai", label: "AI" },
-  { href: "#workshops", label: "Experiences" },
+  { href: "#experience", label: "Experiences" },
   { href: "#vision", label: "Vision" },
 ];
 

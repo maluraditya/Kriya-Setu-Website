@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { Yantra } from "@/components/site/Yantra";
+import { PendulumLab } from "@/components/site/PendulumLab";
+import { FrameworkScroll } from "@/components/site/FrameworkScroll";
 import transformationImg from "@/assets/transformation.jpg";
 
 export const Route = createFileRoute("/")({
@@ -36,14 +38,42 @@ function Index() {
       <Marquee />
       <Problem />
       <Shift />
+      <Experience />
       <How />
       <AI />
-      <Workshops />
       <WhyInstitutions />
       <Vision />
       <CTA />
       <Footer />
     </div>
+  );
+}
+
+/* ------------------------------- EXPERIENCE ------------------------------ */
+function Experience() {
+  return (
+    <section id="experience" className="relative py-28 md:py-36 overflow-hidden">
+      <div aria-hidden className="absolute inset-x-0 -top-1/3 h-[120%] -z-10 opacity-60"
+        style={{ background: "radial-gradient(60% 50% at 70% 30%, color-mix(in oklab, var(--accent) 12%, transparent), transparent 70%)" }} />
+      <div className="container-px mx-auto max-w-7xl">
+        <div className="max-w-2xl mb-12">
+          <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
+            <span className="inline-block h-px w-8 align-middle bg-accent mr-3" />Experience it · not slides
+          </p>
+          <h2 className="mt-5 font-display text-4xl md:text-5xl leading-[1.05] tracking-tight">
+            Most sites <em className="text-muted-foreground/70 not-italic line-through">describe</em> learning.
+            <br />
+            We let you <em className="text-accent not-italic">do</em> it.
+          </h2>
+          <p className="mt-5 text-muted-foreground text-lg leading-relaxed">
+            A live classroom moment, embedded right here. Move the sliders.
+            Notice what your hands understood before your head caught up.
+            That moment — that's the entire Kriyasetu method.
+          </p>
+        </div>
+        <PendulumLab />
+      </div>
+    </section>
   );
 }
 
@@ -208,40 +238,11 @@ function FragmentRow({ a, b }: { a: string; b: string }) {
 
 /* ---------------------------------- HOW --------------------------------- */
 function How() {
-  const steps = [
-    ["Concept Understanding", "Anchor the idea in clarity, not memory."],
-    ["Visualisation", "Make the invisible visible — diagrams, models, motion."],
-    ["Real-World Connection", "Tie every concept to lived reality."],
-    ["Experiential Activity", "Let students do, build, and discover."],
-    ["Reflection & Reinforcement", "Convert experience into permanent insight."],
-    ["Competence Building", "Application, confidence, transfer."],
-  ];
   return (
     <Section id="how" eyebrow="The framework" title={<>Six steps from <em className="text-primary not-italic">concept</em> to competence.</>}
-      lead="A repeatable, measurable rhythm any teacher can run — designed with educators, not for them.">
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {steps.map(([t, d], i) => (
-          <div key={t} className="group relative bg-card border border-border rounded-2xl p-7 hover:border-primary/40 transition-all hover:-translate-y-1 duration-500" style={{ boxShadow: "var(--shadow-soft)" }}>
-            <div className="flex items-center justify-between">
-              <span className="text-xs tabular-nums text-muted-foreground">STEP · {String(i + 1).padStart(2, "0")}</span>
-              <StepGlyph i={i} />
-            </div>
-            <h3 className="mt-6 font-display text-2xl">{t}</h3>
-            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{d}</p>
-            <div className="absolute inset-x-7 bottom-5 h-px bg-gradient-to-r from-primary/30 via-accent/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-          </div>
-        ))}
-      </div>
+      lead="Scroll. The framework reveals itself the same way a Kriyasetu lesson does — one node at a time, each building on the last.">
+      <FrameworkScroll />
     </Section>
-  );
-}
-function StepGlyph({ i }: { i: number }) {
-  return (
-    <svg viewBox="0 0 36 36" className="h-9 w-9">
-      <circle cx="18" cy="18" r="16" fill="none" stroke="var(--brand-blue)" strokeOpacity=".15" />
-      <circle cx="18" cy="18" r={4 + i} fill="none" stroke="var(--brand-blue)" strokeOpacity=".5" />
-      <circle cx="18" cy="18" r="2" fill="var(--brand-orange)" />
-    </svg>
   );
 }
 
@@ -269,35 +270,6 @@ function AI() {
             </div>
           ))}
         </div>
-      </div>
-    </Section>
-  );
-}
-
-/* ------------------------------- WORKSHOPS ------------------------------ */
-function Workshops() {
-  const list = [
-    ["Design Thinking", "Teachers as designers of learning."],
-    ["AI in Education", "Hands-on, demystified, classroom-ready."],
-    ["Faculty Enablement", "Teaching craft, framework fluency, confidence."],
-    ["Student Innovation", "From curiosity to working prototypes."],
-    ["Problem Solving", "Frameworks for thinking, not just answering."],
-    ["Interactive Learning Models", "Concept-first, experience-led classroom systems."],
-  ];
-  return (
-    <Section id="workshops" eyebrow="Experiences" title={<>Workshops that <em className="text-primary not-italic">change classrooms.</em></>}
-      lead="Immersive sessions for faculty and students — built to leave behind systems, not slides.">
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {list.map(([t, d], i) => (
-          <article key={t} className="group relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-card to-secondary/40 p-7 hover:border-accent/40 transition-colors">
-            <span className="text-xs tabular-nums text-muted-foreground">— {String(i + 1).padStart(2, "0")}</span>
-            <h3 className="mt-3 font-display text-2xl">{t}</h3>
-            <p className="mt-2 text-sm text-muted-foreground">{d}</p>
-            <span className="mt-6 inline-flex items-center gap-1.5 text-sm text-primary group-hover:text-accent transition-colors">
-              Explore <span className="transition-transform group-hover:translate-x-1">→</span>
-            </span>
-          </article>
-        ))}
       </div>
     </Section>
   );
