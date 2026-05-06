@@ -40,14 +40,42 @@ function Index() {
       <Marquee />
       <Problem />
       <Shift />
+      <Experience />
       <How />
       <AI />
-      <Workshops />
       <WhyInstitutions />
       <Vision />
       <CTA />
       <Footer />
     </div>
+  );
+}
+
+/* ------------------------------- EXPERIENCE ------------------------------ */
+function Experience() {
+  return (
+    <section id="experience" className="relative py-28 md:py-36 overflow-hidden">
+      <div aria-hidden className="absolute inset-x-0 -top-1/3 h-[120%] -z-10 opacity-60"
+        style={{ background: "radial-gradient(60% 50% at 70% 30%, color-mix(in oklab, var(--accent) 12%, transparent), transparent 70%)" }} />
+      <div className="container-px mx-auto max-w-7xl">
+        <div className="max-w-2xl mb-12">
+          <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
+            <span className="inline-block h-px w-8 align-middle bg-accent mr-3" />Experience it · not slides
+          </p>
+          <h2 className="mt-5 font-display text-4xl md:text-5xl leading-[1.05] tracking-tight">
+            Most sites <em className="text-muted-foreground/70 not-italic line-through">describe</em> learning.
+            <br />
+            We let you <em className="text-accent not-italic">do</em> it.
+          </h2>
+          <p className="mt-5 text-muted-foreground text-lg leading-relaxed">
+            A live classroom moment, embedded right here. Move the sliders.
+            Notice what your hands understood before your head caught up.
+            That moment — that's the entire Kriyasetu method.
+          </p>
+        </div>
+        <PendulumLab />
+      </div>
+    </section>
   );
 }
 
