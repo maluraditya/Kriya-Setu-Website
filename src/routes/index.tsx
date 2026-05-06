@@ -3,6 +3,8 @@ import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { Yantra } from "@/components/site/Yantra";
 import { WaveInterferenceLab } from "@/components/site/WaveInterferenceLab";
+import { HeroCanvas } from "@/components/site/HeroCanvas";
+import { TeacherScroll } from "@/components/site/TeacherScroll";
 import { FrameworkScroll } from "@/components/site/FrameworkScroll";
 import transformationImg from "@/assets/transformation.jpg";
 
@@ -37,6 +39,7 @@ function Index() {
       <Hero />
       <Marquee />
       <Problem />
+      <TeacherScroll />
       <MidCTA
         heading="Ready to see the shift in your classrooms?"
         sub="Join institutions already moving from memorisation to mastery."
@@ -120,19 +123,24 @@ function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-20 pb-16">
       {/* Background layer */}
-      <div aria-hidden className="absolute inset-0 -z-10 overflow-hidden">
-        {/* Warm ambient glow */}
-        <div className="absolute top-1/4 right-1/4 w-[600px] h-[600px] rounded-full opacity-30"
-          style={{ background: "radial-gradient(circle, color-mix(in oklab, var(--accent) 20%, transparent), transparent 70%)" }} />
-        <div className="absolute bottom-1/3 left-1/4 w-[400px] h-[400px] rounded-full opacity-20"
-          style={{ background: "radial-gradient(circle, color-mix(in oklab, var(--primary) 18%, transparent), transparent 70%)" }} />
-        {/* Yantra */}
-        <Yantra className="absolute -right-40 -top-24 w-[880px] opacity-75 float-slow" />
-        {/* Grid dot pattern */}
-        <div className="absolute inset-0 opacity-[0.025]"
-          style={{ backgroundImage: "radial-gradient(circle, var(--brand-blue) 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
-        {/* Fade to bg at bottom */}
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent" />
+      <div aria-hidden className="absolute inset-0 -z-10 overflow-hidden hero-canvas-wrap">
+        {/* Live particle network — mouse-reactive knowledge graph */}
+        <HeroCanvas />
+        {/* Warm ambient glows underneath */}
+        <div
+          className="absolute top-1/3 right-1/3 w-[700px] h-[700px] rounded-full opacity-25 pointer-events-none"
+          style={{ background: "radial-gradient(circle, color-mix(in oklab, var(--accent) 22%, transparent), transparent 65%)" }}
+        />
+        <div
+          className="absolute bottom-1/4 left-1/5 w-[500px] h-[500px] rounded-full opacity-15 pointer-events-none"
+          style={{ background: "radial-gradient(circle, color-mix(in oklab, var(--primary) 18%, transparent), transparent 65%)" }}
+        />
+        {/* Yantra — softer, float */}
+        <Yantra className="absolute -right-48 -top-24 w-[900px] opacity-40 float-slow pointer-events-none" />
+        {/* Vignette fade to bg at bottom */}
+        <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-background to-transparent pointer-events-none" />
+        {/* Subtle top fade */}
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background/60 to-transparent pointer-events-none" />
       </div>
 
       <div className="container-px mx-auto max-w-7xl flex-1 flex flex-col justify-center">
@@ -190,10 +198,10 @@ function Hero() {
             Book a Demo
           </a>
           <a
-            href="#cta"
+            href="#teacher-story"
             className="hidden sm:inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
-            Partner with us ↗
+            See the teacher story ↓
           </a>
         </div>
 

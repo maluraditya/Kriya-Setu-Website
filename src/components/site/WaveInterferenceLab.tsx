@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
 
 export function WaveInterferenceLab() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -194,15 +193,10 @@ export function WaveInterferenceLab() {
           </p>
         </div>
 
-        <motion.p
-          key={`${frequency.toFixed(2)}-${separation}`}
-          initial={{ opacity: 0, y: 4 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-xs text-muted-foreground"
-        >
+        <p className="text-xs text-muted-foreground">
           Insight · Move sources further apart → more interference bands appear.
           That's Huygens' principle — discovered, not told.
-        </motion.p>
+        </p>
       </div>
     </div>
   );
