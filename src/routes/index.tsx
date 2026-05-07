@@ -86,7 +86,7 @@ function Experience() {
         <div className="max-w-2xl mb-12">
           <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
             <span className="inline-block h-px w-8 align-middle bg-accent mr-3" />
-            Physics · Wave Interference · Live
+            Chemistry · Build an Atom · Live
           </p>
           <h2 className="mt-5 font-display text-4xl md:text-5xl leading-[1.05] tracking-tight">
             Most sites{" "}
@@ -98,14 +98,12 @@ function Experience() {
             We let you <em className="text-accent not-italic">feel</em> it.
           </h2>
           <p className="mt-5 text-muted-foreground text-lg leading-relaxed">
-            Below is a live physics simulation — the same type of immersive
-            experience Kriyasetu brings into every classroom. Drag the sliders.
-            Watch the universe respond. That moment of{" "}
-            <span className="text-foreground italic">"oh — I get it"</span> is
-            the entire Kriyasetu method.
+            Add a proton — a new element appears. Add an electron — the atom calms.
+            This isn't a video. It's the same kind of moment Kriyasetu engineers
+            into every classroom: <span className="text-foreground italic">"oh — I get it."</span>
           </p>
         </div>
-        <WaveInterferenceLab />
+        <AtomBuilder />
       </div>
     </section>
   );
