@@ -121,20 +121,19 @@ function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-20 pb-16">
       {/* Background layer */}
-      <div aria-hidden className="absolute inset-0 -z-10 overflow-hidden hero-canvas-wrap">
-        {/* Live particle network — mouse-reactive knowledge graph */}
-        <HeroCanvas />
-        {/* Warm ambient glows underneath */}
+      <div aria-hidden className="absolute inset-0 -z-10 overflow-hidden">
+        {/* Warm cream base with soft chromatic glows */}
         <div
-          className="absolute top-1/3 right-1/3 w-[700px] h-[700px] rounded-full opacity-25 pointer-events-none"
-          style={{ background: "radial-gradient(circle, color-mix(in oklab, var(--accent) 22%, transparent), transparent 65%)" }}
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(60% 50% at 70% 30%, color-mix(in oklab, var(--accent) 14%, transparent), transparent 60%), radial-gradient(50% 60% at 20% 70%, color-mix(in oklab, var(--primary) 12%, transparent), transparent 60%)",
+          }}
         />
-        <div
-          className="absolute bottom-1/4 left-1/5 w-[500px] h-[500px] rounded-full opacity-15 pointer-events-none"
-          style={{ background: "radial-gradient(circle, color-mix(in oklab, var(--primary) 18%, transparent), transparent 65%)" }}
-        />
+        {/* Floating educational artifacts */}
+        <HeroFloaters />
         {/* Yantra — softer, float */}
-        <Yantra className="absolute -right-48 -top-24 w-[900px] opacity-40 float-slow pointer-events-none" />
+        <Yantra className="absolute -right-48 -top-24 w-[900px] opacity-25 float-slow pointer-events-none" />
         {/* Vignette fade to bg at bottom */}
         <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-background to-transparent pointer-events-none" />
         {/* Subtle top fade */}
