@@ -146,7 +146,7 @@ export function TeacherScroll() {
               >
                 {cur.stat}
               </span>
-              <span className="mt-2 text-[10px] uppercase tracking-widest text-background/40 leading-tight">
+              <span className="mt-3 text-[11px] uppercase tracking-widest text-background/75 leading-snug max-w-[14rem]">
                 {cur.statSub}
               </span>
             </div>
@@ -155,7 +155,7 @@ export function TeacherScroll() {
           {/* Tag badge */}
           <div
             className="mt-8 text-xs uppercase tracking-[0.22em] px-4 py-1.5 rounded-full border transition-all duration-500"
-            style={{ borderColor: `${cur.ringColor}40`, color: cur.ringColor }}
+            style={{ borderColor: cur.ringColor, color: "#fff", background: `${cur.ringColor}33` }}
           >
             {cur.tag}
           </div>
