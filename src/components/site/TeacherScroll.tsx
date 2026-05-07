@@ -175,20 +175,20 @@ export function TeacherScroll() {
           {/* Background step number watermark */}
           <div
             className="absolute right-6 bottom-4 font-display text-[8rem] leading-none select-none pointer-events-none"
-            style={{ color: "rgba(255,255,255,0.03)", transition: "none" }}
+            style={{ color: "rgba(255,255,255,0.06)", transition: "none" }}
           >
             {String(step + 1).padStart(2, "0")}
           </div>
 
           {/* Content */}
-          <div key={step} className="ts-step-content max-w-lg">
-            <p className="text-xs uppercase tracking-[0.22em] text-background/40">
+          <div key={step} className="ts-step-content max-w-lg relative">
+            <p className="text-xs uppercase tracking-[0.22em]" style={{ color: cur.ringColor }}>
               {cur.eyebrow}
             </p>
-            <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl leading-[1.08]">
+            <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl leading-[1.08] text-white">
               {cur.headline}
             </h2>
-            <p className="mt-5 text-background/65 text-lg leading-relaxed">
+            <p className="mt-5 text-background/85 text-lg leading-relaxed">
               {cur.body}
             </p>
 
