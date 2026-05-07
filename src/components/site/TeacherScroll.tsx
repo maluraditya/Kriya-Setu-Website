@@ -83,6 +83,14 @@ export function TeacherScroll() {
     >
       {/* Sticky viewport */}
       <div className="sticky top-0 h-screen overflow-hidden bg-[color:var(--brand-ink)] text-background flex flex-col md:flex-row">
+        {/* subtle ambient glow keyed to current step */}
+        <div
+          aria-hidden
+          className="absolute inset-0 pointer-events-none transition-all duration-700"
+          style={{
+            background: `radial-gradient(60% 50% at 30% 50%, ${cur.ringColor}26, transparent 60%), radial-gradient(40% 40% at 75% 60%, ${cur.ringColor}1a, transparent 70%)`,
+          }}
+        />
 
         {/* ── Left panel: animated stat + ring ─────────────────── */}
         <div className="relative flex-1 flex flex-col items-center justify-center px-8 py-12 md:py-0 border-b md:border-b-0 md:border-r border-white/8">
@@ -138,7 +146,7 @@ export function TeacherScroll() {
               >
                 {cur.stat}
               </span>
-              <span className="mt-2 text-[10px] uppercase tracking-widest text-background/40 leading-tight">
+              <span className="mt-3 text-[11px] uppercase tracking-widest text-background/75 leading-snug max-w-[14rem]">
                 {cur.statSub}
               </span>
             </div>
@@ -147,7 +155,7 @@ export function TeacherScroll() {
           {/* Tag badge */}
           <div
             className="mt-8 text-xs uppercase tracking-[0.22em] px-4 py-1.5 rounded-full border transition-all duration-500"
-            style={{ borderColor: `${cur.ringColor}40`, color: cur.ringColor }}
+            style={{ borderColor: cur.ringColor, color: "#fff", background: `${cur.ringColor}33` }}
           >
             {cur.tag}
           </div>
@@ -167,20 +175,20 @@ export function TeacherScroll() {
           {/* Background step number watermark */}
           <div
             className="absolute right-6 bottom-4 font-display text-[8rem] leading-none select-none pointer-events-none"
-            style={{ color: "rgba(255,255,255,0.03)", transition: "none" }}
+            style={{ color: "rgba(255,255,255,0.06)", transition: "none" }}
           >
             {String(step + 1).padStart(2, "0")}
           </div>
 
           {/* Content */}
-          <div key={step} className="ts-step-content max-w-lg">
-            <p className="text-xs uppercase tracking-[0.22em] text-background/40">
+          <div key={step} className="ts-step-content max-w-lg relative">
+            <p className="text-xs uppercase tracking-[0.22em]" style={{ color: cur.ringColor }}>
               {cur.eyebrow}
             </p>
-            <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl leading-[1.08]">
+            <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl leading-[1.08] text-white">
               {cur.headline}
             </h2>
-            <p className="mt-5 text-background/65 text-lg leading-relaxed">
+            <p className="mt-5 text-background/85 text-lg leading-relaxed">
               {cur.body}
             </p>
 

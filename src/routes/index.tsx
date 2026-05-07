@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { Yantra } from "@/components/site/Yantra";
-import { WaveInterferenceLab } from "@/components/site/WaveInterferenceLab";
-import { HeroCanvas } from "@/components/site/HeroCanvas";
+import { AtomBuilder } from "@/components/site/AtomBuilder";
+import { HeroFloaters } from "@/components/site/HeroFloaters";
 import { TeacherScroll } from "@/components/site/TeacherScroll";
 import { FrameworkScroll } from "@/components/site/FrameworkScroll";
 import transformationImg from "@/assets/transformation.jpg";
@@ -86,7 +86,7 @@ function Experience() {
         <div className="max-w-2xl mb-12">
           <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
             <span className="inline-block h-px w-8 align-middle bg-accent mr-3" />
-            Physics · Wave Interference · Live
+            Chemistry · Build an Atom · Live
           </p>
           <h2 className="mt-5 font-display text-4xl md:text-5xl leading-[1.05] tracking-tight">
             Most sites{" "}
@@ -98,14 +98,12 @@ function Experience() {
             We let you <em className="text-accent not-italic">feel</em> it.
           </h2>
           <p className="mt-5 text-muted-foreground text-lg leading-relaxed">
-            Below is a live physics simulation — the same type of immersive
-            experience Kriyasetu brings into every classroom. Drag the sliders.
-            Watch the universe respond. That moment of{" "}
-            <span className="text-foreground italic">"oh — I get it"</span> is
-            the entire Kriyasetu method.
+            Add a proton — a new element appears. Add an electron — the atom calms.
+            This isn't a video. It's the same kind of moment Kriyasetu engineers
+            into every classroom: <span className="text-foreground italic">"oh — I get it."</span>
           </p>
         </div>
-        <WaveInterferenceLab />
+        <AtomBuilder />
       </div>
     </section>
   );
@@ -123,20 +121,19 @@ function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-20 pb-16">
       {/* Background layer */}
-      <div aria-hidden className="absolute inset-0 -z-10 overflow-hidden hero-canvas-wrap">
-        {/* Live particle network — mouse-reactive knowledge graph */}
-        <HeroCanvas />
-        {/* Warm ambient glows underneath */}
+      <div aria-hidden className="absolute inset-0 -z-10 overflow-hidden">
+        {/* Warm cream base with soft chromatic glows */}
         <div
-          className="absolute top-1/3 right-1/3 w-[700px] h-[700px] rounded-full opacity-25 pointer-events-none"
-          style={{ background: "radial-gradient(circle, color-mix(in oklab, var(--accent) 22%, transparent), transparent 65%)" }}
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(60% 50% at 70% 30%, color-mix(in oklab, var(--accent) 14%, transparent), transparent 60%), radial-gradient(50% 60% at 20% 70%, color-mix(in oklab, var(--primary) 12%, transparent), transparent 60%)",
+          }}
         />
-        <div
-          className="absolute bottom-1/4 left-1/5 w-[500px] h-[500px] rounded-full opacity-15 pointer-events-none"
-          style={{ background: "radial-gradient(circle, color-mix(in oklab, var(--primary) 18%, transparent), transparent 65%)" }}
-        />
+        {/* Floating educational artifacts */}
+        <HeroFloaters />
         {/* Yantra — softer, float */}
-        <Yantra className="absolute -right-48 -top-24 w-[900px] opacity-40 float-slow pointer-events-none" />
+        <Yantra className="absolute -right-48 -top-24 w-[900px] opacity-25 float-slow pointer-events-none" />
         {/* Vignette fade to bg at bottom */}
         <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-background to-transparent pointer-events-none" />
         {/* Subtle top fade */}
@@ -260,28 +257,35 @@ function Marquee() {
 
 /* -------------------------------- PROBLEM ------------------------------- */
 function Problem() {
-  const items = [
-    "Students memorise but rarely understand.",
-    "Conceptual foundations remain weak.",
-    "The same concept gets taught inconsistently.",
-    "Engagement quietly fades through the term.",
-    "Abstract ideas stay abstract, never lived.",
-    "Effort doesn’t always translate to outcomes.",
-    "Weaker students get left behind.",
-    "Faculty carry quiet, persistent burnout.",
+  const items: { icon: string; title: string; desc: string }[] = [
+    { icon: "📚", title: "Memory over meaning",     desc: "Students remember formulas. They rarely understand them." },
+    { icon: "🧱", title: "Weak foundations",         desc: "Concepts stack on shaky ground — and quietly collapse later." },
+    { icon: "🎲", title: "Inconsistent depth",       desc: "The same chapter, taught five different ways across sections." },
+    { icon: "📉", title: "Engagement fades",         desc: "Curiosity in week one. Compliance by week ten." },
+    { icon: "💭", title: "Abstract stays abstract",  desc: "Ideas are described, never lived — so they never stick." },
+    { icon: "⚖️", title: "Effort ≠ outcomes",        desc: "Hours of work. Marks that don't reflect the effort." },
+    { icon: "🪟", title: "Slower learners drift",    desc: "The pace is set for the middle. The edges get left behind." },
+    { icon: "🔥", title: "Quiet faculty burnout",   desc: "Teachers carry the weight of a system designed for coverage." },
   ];
   return (
-    <Section id="problem" eyebrow="The reality" title={<>What teachers deal <em className="text-accent not-italic">with every day</em>.</>}
-      lead="Most classrooms are full of effort. The gap isn’t intent — it’s the system.">
-      <div className="grid gap-px bg-border rounded-2xl overflow-hidden border border-border">
-        <div className="grid sm:grid-cols-2 gap-px">
-          {items.map((t, i) => (
-            <div key={t} className="bg-background p-7 flex gap-5 items-start">
-              <span className="font-display text-2xl text-primary tabular-nums">·{String(i + 1).padStart(2, "0")}</span>
-              <p className="text-base leading-relaxed">{t}</p>
-            </div>
-          ))}
-        </div>
+    <Section
+      id="problem"
+      eyebrow="The reality"
+      title={<>What teachers deal <em className="text-accent not-italic">with every day</em>.</>}
+      lead="Most classrooms are full of effort. The gap isn't intent — it's the system."
+    >
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+        {items.map((it) => (
+          <div
+            key={it.title}
+            className="group relative rounded-2xl border border-border bg-card p-5 md:p-6 hover:border-accent/40 hover:shadow-md transition-all duration-300"
+          >
+            <div className="text-2xl mb-3">{it.icon}</div>
+            <h3 className="font-display text-lg leading-snug">{it.title}</h3>
+            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{it.desc}</p>
+            <div className="absolute bottom-0 left-5 right-5 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+          </div>
+        ))}
       </div>
     </Section>
   );
