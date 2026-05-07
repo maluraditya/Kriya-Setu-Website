@@ -257,28 +257,35 @@ function Marquee() {
 
 /* -------------------------------- PROBLEM ------------------------------- */
 function Problem() {
-  const items = [
-    "Students memorise but rarely understand.",
-    "Conceptual foundations remain weak.",
-    "The same concept gets taught inconsistently.",
-    "Engagement quietly fades through the term.",
-    "Abstract ideas stay abstract, never lived.",
-    "Effort doesn’t always translate to outcomes.",
-    "Weaker students get left behind.",
-    "Faculty carry quiet, persistent burnout.",
+  const items: { icon: string; title: string; desc: string }[] = [
+    { icon: "📚", title: "Memory over meaning",     desc: "Students remember formulas. They rarely understand them." },
+    { icon: "🧱", title: "Weak foundations",         desc: "Concepts stack on shaky ground — and quietly collapse later." },
+    { icon: "🎲", title: "Inconsistent depth",       desc: "The same chapter, taught five different ways across sections." },
+    { icon: "📉", title: "Engagement fades",         desc: "Curiosity in week one. Compliance by week ten." },
+    { icon: "💭", title: "Abstract stays abstract",  desc: "Ideas are described, never lived — so they never stick." },
+    { icon: "⚖️", title: "Effort ≠ outcomes",        desc: "Hours of work. Marks that don't reflect the effort." },
+    { icon: "🪟", title: "Slower learners drift",    desc: "The pace is set for the middle. The edges get left behind." },
+    { icon: "🔥", title: "Quiet faculty burnout",   desc: "Teachers carry the weight of a system designed for coverage." },
   ];
   return (
-    <Section id="problem" eyebrow="The reality" title={<>What teachers deal <em className="text-accent not-italic">with every day</em>.</>}
-      lead="Most classrooms are full of effort. The gap isn’t intent — it’s the system.">
-      <div className="grid gap-px bg-border rounded-2xl overflow-hidden border border-border">
-        <div className="grid sm:grid-cols-2 gap-px">
-          {items.map((t, i) => (
-            <div key={t} className="bg-background p-7 flex gap-5 items-start">
-              <span className="font-display text-2xl text-primary tabular-nums">·{String(i + 1).padStart(2, "0")}</span>
-              <p className="text-base leading-relaxed">{t}</p>
-            </div>
-          ))}
-        </div>
+    <Section
+      id="problem"
+      eyebrow="The reality"
+      title={<>What teachers deal <em className="text-accent not-italic">with every day</em>.</>}
+      lead="Most classrooms are full of effort. The gap isn't intent — it's the system."
+    >
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+        {items.map((it) => (
+          <div
+            key={it.title}
+            className="group relative rounded-2xl border border-border bg-card p-5 md:p-6 hover:border-accent/40 hover:shadow-md transition-all duration-300"
+          >
+            <div className="text-2xl mb-3">{it.icon}</div>
+            <h3 className="font-display text-lg leading-snug">{it.title}</h3>
+            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{it.desc}</p>
+            <div className="absolute bottom-0 left-5 right-5 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+          </div>
+        ))}
       </div>
     </Section>
   );
