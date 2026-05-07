@@ -83,6 +83,14 @@ export function TeacherScroll() {
     >
       {/* Sticky viewport */}
       <div className="sticky top-0 h-screen overflow-hidden bg-[color:var(--brand-ink)] text-background flex flex-col md:flex-row">
+        {/* subtle ambient glow keyed to current step */}
+        <div
+          aria-hidden
+          className="absolute inset-0 pointer-events-none transition-all duration-700"
+          style={{
+            background: `radial-gradient(60% 50% at 30% 50%, ${cur.ringColor}26, transparent 60%), radial-gradient(40% 40% at 75% 60%, ${cur.ringColor}1a, transparent 70%)`,
+          }}
+        />
 
         {/* ── Left panel: animated stat + ring ─────────────────── */}
         <div className="relative flex-1 flex flex-col items-center justify-center px-8 py-12 md:py-0 border-b md:border-b-0 md:border-r border-white/8">
