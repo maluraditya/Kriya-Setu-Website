@@ -32,11 +32,15 @@ export const Route = createRootRoute({
       { title: "Kriyasetu — Bridging Knowledge and Real Competence" },
       { name: "description", content: "AI-powered experiential learning platform helping institutions move from memorisation to mastery." },
       { name: "author", content: "Kriyasetu" },
-      { property: "og:title", content: "Kriyasetu" },
-      { property: "og:description", content: "Bridging knowledge and real competence through experiential learning." },
+      { property: "og:title", content: "Kriyasetu — Bridging Knowledge and Real Competence" },
+      { property: "og:description", content: "AI-powered experiential learning platform helping institutions move from memorisation to mastery." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Kriyasetu — Bridging Knowledge and Real Competence" },
+      { name: "twitter:description", content: "AI-powered experiential learning platform helping institutions move from memorisation to mastery." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d1d7ffd4-a64c-4987-8207-1dca1510f5f8/id-preview-51109f75--a5d57baa-1b7b-4606-9906-5ad343c2c90c.lovable.app-1780548470158.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d1d7ffd4-a64c-4987-8207-1dca1510f5f8/id-preview-51109f75--a5d57baa-1b7b-4606-9906-5ad343c2c90c.lovable.app-1780548470158.png" },
     ],
     links: [
       {
