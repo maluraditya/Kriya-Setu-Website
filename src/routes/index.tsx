@@ -600,3 +600,111 @@ function Section({
     </section>
   );
 }
+
+/* ------------------------------- SOLUTION -------------------------------- */
+function Solution() {
+  const annotations: { x: string; y: string; label: string; sub: string; side: "left" | "right" | "top" | "bottom" }[] = [
+    { x: "26%", y: "44%", label: "Teacher in flow", sub: "Guides, doesn't lecture", side: "left" },
+    { x: "52%", y: "30%", label: "Live concept canvas", sub: "Curriculum-aligned visuals", side: "top" },
+    { x: "82%", y: "22%", label: "NCERT aligned", sub: "Mapped to syllabus", side: "right" },
+    { x: "18%", y: "78%", label: "Student devices", sub: "Same concept, personal pace", side: "bottom" },
+    { x: "78%", y: "78%", label: "Engaged learners", sub: "From passive to participating", side: "bottom" },
+  ];
+
+  return (
+    <section id="solution" className="relative py-28 md:py-36 overflow-hidden">
+      <div className="container-px mx-auto max-w-7xl">
+        <div className="max-w-3xl">
+          <p className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-muted-foreground">
+            <span className="h-px w-8 bg-accent flex-shrink-0" />
+            How we solve it
+          </p>
+          <h2 className="mt-5 font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight">
+            One classroom. <em className="not-italic" style={{ color: "var(--brand-orange)" }}>Every student in flow.</em>
+          </h2>
+          <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
+            KriyaSetu equips the teacher with a curriculum-aligned experiential canvas — concepts come alive on the board,
+            every student follows along on their device, and learning shifts from listening to doing.
+          </p>
+        </div>
+
+        <div className="relative mt-14 rounded-3xl overflow-hidden border border-border" style={{ boxShadow: "var(--shadow-elev)" }}>
+          <img
+            src={classroomSolution.url}
+            alt="A KriyaSetu-enabled classroom where the teacher guides experiential learning on a smart board while students follow on personal devices"
+            className="w-full h-auto block"
+            loading="lazy"
+          />
+
+          {/* annotation overlay */}
+          <div className="absolute inset-0 pointer-events-none">
+            {annotations.map((a, i) => (
+              <div
+                key={i}
+                className="absolute"
+                style={{ left: a.x, top: a.y, transform: "translate(-50%, -50%)" }}
+              >
+                {/* dot */}
+                <span
+                  className="block h-3 w-3 rounded-full ring-4 ring-background/70"
+                  style={{ background: "var(--brand-orange)", boxShadow: "0 0 0 8px color-mix(in oklab, var(--brand-orange) 18%, transparent)" }}
+                />
+                {/* label card */}
+                <div
+                  className={`absolute whitespace-nowrap rounded-lg bg-background/95 backdrop-blur border border-border px-3 py-1.5 text-xs shadow-md ${
+                    a.side === "left" ? "right-6 top-1/2 -translate-y-1/2" :
+                    a.side === "right" ? "left-6 top-1/2 -translate-y-1/2" :
+                    a.side === "top" ? "left-1/2 -translate-x-1/2 bottom-6" :
+                    "left-1/2 -translate-x-1/2 top-6"
+                  }`}
+                >
+                  <div className="font-display text-foreground leading-tight">{a.label}</div>
+                  <div className="text-[10px] text-muted-foreground">{a.sub}</div>
+                </div>
+                {/* connector line */}
+                <span
+                  className={`absolute bg-[color:var(--brand-orange)]/60 ${
+                    a.side === "left" ? "right-3 top-1/2 h-px w-3" :
+                    a.side === "right" ? "left-3 top-1/2 h-px w-3" :
+                    a.side === "top" ? "left-1/2 -translate-x-1/2 bottom-3 w-px h-3" :
+                    "left-1/2 -translate-x-1/2 top-3 w-px h-3"
+                  }`}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-10 grid sm:grid-cols-3 gap-4">
+          {[
+            { k: "For teachers", v: "Plan less. Inspire more." },
+            { k: "For students", v: "Feel it. Then remember it." },
+            { k: "For institutions", v: "Outcomes you can measure." },
+          ].map((c) => (
+            <div key={c.k} className="rounded-2xl border border-border bg-card/60 backdrop-blur-sm px-5 py-5">
+              <div className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">{c.k}</div>
+              <div className="mt-2 font-display text-lg">{c.v}</div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10 flex flex-wrap gap-3">
+          <a
+            href="#cta"
+            className="inline-flex items-center gap-2 rounded-full px-7 py-4 text-sm font-medium hover:gap-3 transition-all"
+            style={{ background: "var(--brand-orange)", color: "#fff" }}
+          >
+            Bring KriyaSetu to your classroom <span>→</span>
+          </a>
+          <a
+            href="#how"
+            className="inline-flex items-center gap-2 rounded-full border border-foreground/15 px-7 py-4 text-sm font-medium hover:border-foreground/40 transition-colors"
+          >
+            See how it works
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
