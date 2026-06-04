@@ -41,7 +41,9 @@ function Index() {
       <Hero />
       <Marquee />
       <Problem />
+      <Solution />
       <TeacherScroll />
+
       <MidCTA
         heading="Ready to see the shift in your classrooms?"
         sub="Join institutions already moving from memorisation to mastery."
