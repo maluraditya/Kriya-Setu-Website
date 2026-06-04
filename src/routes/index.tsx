@@ -149,11 +149,10 @@ function Hero() {
 
         {/* Headline */}
         <h1 className="reveal reveal-delay-1 mt-6 font-display text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] leading-[1.01] tracking-tight max-w-4xl">
-          Where knowing
+          Learning should be
           <br />
-          becomes{" "}
           <span className="relative inline-block">
-            <span style={{ color: "var(--brand-orange)" }}>doing.</span>
+            <span style={{ color: "var(--brand-orange)" }}>experienced</span>
             <svg
               className="absolute -bottom-2 left-0 w-full"
               height="10"
@@ -169,13 +168,17 @@ function Hero() {
                 opacity="0.5"
               />
             </svg>
-          </span>
+          </span>{" "}
+          not
+          <br />
+          memorized.
         </h1>
 
         {/* Sub */}
         <p className="reveal reveal-delay-2 mt-7 text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed">
-          The experiential learning platform that turns abstract concepts into
-          visceral, unforgettable understanding — for every student, every class.
+          KriyaSetu bridges the gap between memorisation and understanding through
+          curriculum-aligned experiential learning, helping educators teach with
+          clarity and students learn with meaning.
         </p>
 
         {/* CTAs */}
@@ -194,13 +197,8 @@ function Hero() {
           >
             Book a Demo
           </a>
-          <a
-            href="#teacher-story"
-            className="hidden sm:inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            See the teacher story ↓
-          </a>
         </div>
+
 
         {/* Social proof */}
         <p className="reveal reveal-delay-3 mt-6 text-xs text-muted-foreground/70">
