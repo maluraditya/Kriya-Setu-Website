@@ -7,6 +7,8 @@ import { HeroFloaters } from "@/components/site/HeroFloaters";
 import { TeacherScroll } from "@/components/site/TeacherScroll";
 import { FrameworkScroll } from "@/components/site/FrameworkScroll";
 import transformationImg from "@/assets/transformation.jpg";
+import classroomSolution from "@/assets/classroom-solution.png.asset.json";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
