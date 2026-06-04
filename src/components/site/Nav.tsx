@@ -70,18 +70,14 @@ export function Nav() {
   );
 }
 
+import logoAsset from "@/assets/kriyasetu-logo.png.asset.json";
+
 export function Mark({ className = "" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 32 32" className={`h-7 w-7 ${className}`} aria-hidden>
-      <defs>
-        <linearGradient id="km" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stopColor="var(--brand-blue)" />
-          <stop offset="1" stopColor="var(--brand-blue)" stopOpacity=".7" />
-        </linearGradient>
-      </defs>
-      <path d="M16 3 L29 27 H3 Z" fill="none" stroke="url(#km)" strokeWidth="1.25" />
-      <path d="M16 11 L24 26 H8 Z" fill="none" stroke="var(--brand-blue)" strokeWidth="1" opacity=".5" />
-      <circle cx="16" cy="20" r="2.2" fill="var(--brand-orange)" />
-    </svg>
+    <img
+      src={logoAsset.url}
+      alt="Kriyasetu"
+      className={`h-9 w-9 object-contain ${className}`}
+    />
   );
 }
