@@ -4,10 +4,10 @@ const links = [
   { href: "#problem", label: "The Gap" },
   { href: "#shift", label: "The Shift" },
   { href: "#how", label: "How It Works" },
-  { href: "#ai", label: "AI" },
   { href: "#experience", label: "Experiences" },
   { href: "#vision", label: "Vision" },
 ];
+
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);

@@ -33,19 +33,20 @@ type Floater = {
 };
 
 const FLOATERS: Floater[] = [
-  { id: "f1", x: "6%",  y: "12%", size: 78, delay: 0,   duration: 11, drift: [12, -16], rotate: -8,  opacity: 0.55, kind: "atom",            tone: "orange" },
-  { id: "f2", x: "82%", y: "14%", size: 96, delay: 1.2, duration: 13, drift: [-14, 12], rotate: 10,  opacity: 0.45, kind: "formula-energy",  tone: "blue"   },
-  { id: "f3", x: "12%", y: "62%", size: 70, delay: 0.8, duration: 14, drift: [10, 14],  rotate: 6,   opacity: 0.4,  kind: "wave",            tone: "blue"   },
-  { id: "f4", x: "76%", y: "58%", size: 84, delay: 0.4, duration: 12, drift: [-12, 18], rotate: -12, opacity: 0.5,  kind: "molecule",        tone: "orange" },
-  { id: "f5", x: "44%", y: "8%",  size: 58, delay: 1.6, duration: 15, drift: [14, 10],  rotate: 14,  opacity: 0.35, kind: "formula-pi",      tone: "ink"    },
-  { id: "f6", x: "30%", y: "78%", size: 64, delay: 0.6, duration: 10, drift: [-10, -14],rotate: -6,  opacity: 0.4,  kind: "triangle",        tone: "orange" },
-  { id: "f7", x: "62%", y: "82%", size: 72, delay: 2.0, duration: 13, drift: [12, -10], rotate: 8,   opacity: 0.45, kind: "dna",             tone: "blue"   },
-  { id: "f8", x: "92%", y: "40%", size: 60, delay: 0.2, duration: 12, drift: [-14, 12], rotate: -10, opacity: 0.4,  kind: "integral",        tone: "ink"    },
-  { id: "f9", x: "2%",  y: "38%", size: 66, delay: 1.4, duration: 14, drift: [10, -12], rotate: 12,  opacity: 0.4,  kind: "circle-grid",     tone: "blue"   },
-  { id: "f10",x: "52%", y: "46%", size: 54, delay: 1.0, duration: 16, drift: [-8, 14],  rotate: -4,  opacity: 0.3,  kind: "fraction",        tone: "ink"    },
-  { id: "f11",x: "22%", y: "30%", size: 50, delay: 1.8, duration: 11, drift: [10, 12],  rotate: 8,   opacity: 0.32, kind: "compass",         tone: "orange" },
-  { id: "f12",x: "70%", y: "32%", size: 56, delay: 0.5, duration: 13, drift: [-12, -10],rotate: -10, opacity: 0.35, kind: "formula-pendulum",tone: "blue"   },
+  { id: "f1", x: "6%",  y: "12%", size: 78, delay: 0,   duration: 11, drift: [12, -16], rotate: -8,  opacity: 0.85, kind: "atom",            tone: "orange" },
+  { id: "f2", x: "82%", y: "14%", size: 96, delay: 1.2, duration: 13, drift: [-14, 12], rotate: 10,  opacity: 0.75, kind: "formula-energy",  tone: "blue"   },
+  { id: "f3", x: "12%", y: "62%", size: 70, delay: 0.8, duration: 14, drift: [10, 14],  rotate: 6,   opacity: 0.7,  kind: "wave",            tone: "blue"   },
+  { id: "f4", x: "76%", y: "58%", size: 84, delay: 0.4, duration: 12, drift: [-12, 18], rotate: -12, opacity: 0.8,  kind: "molecule",        tone: "orange" },
+  { id: "f5", x: "44%", y: "8%",  size: 58, delay: 1.6, duration: 15, drift: [14, 10],  rotate: 14,  opacity: 0.6,  kind: "formula-pi",      tone: "ink"    },
+  { id: "f6", x: "30%", y: "78%", size: 64, delay: 0.6, duration: 10, drift: [-10, -14],rotate: -6,  opacity: 0.7,  kind: "triangle",        tone: "orange" },
+  { id: "f7", x: "62%", y: "82%", size: 72, delay: 2.0, duration: 13, drift: [12, -10], rotate: 8,   opacity: 0.75, kind: "dna",             tone: "blue"   },
+  { id: "f8", x: "92%", y: "40%", size: 60, delay: 0.2, duration: 12, drift: [-14, 12], rotate: -10, opacity: 0.65, kind: "integral",        tone: "ink"    },
+  { id: "f9", x: "2%",  y: "38%", size: 66, delay: 1.4, duration: 14, drift: [10, -12], rotate: 12,  opacity: 0.7,  kind: "circle-grid",     tone: "blue"   },
+  { id: "f10",x: "52%", y: "46%", size: 54, delay: 1.0, duration: 16, drift: [-8, 14],  rotate: -4,  opacity: 0.55, kind: "fraction",        tone: "ink"    },
+  { id: "f11",x: "22%", y: "30%", size: 50, delay: 1.8, duration: 11, drift: [10, 12],  rotate: 8,   opacity: 0.6,  kind: "compass",         tone: "orange" },
+  { id: "f12",x: "70%", y: "32%", size: 56, delay: 0.5, duration: 13, drift: [-12, -10],rotate: -10, opacity: 0.65, kind: "formula-pendulum",tone: "blue"   },
 ];
+
 
 export function HeroFloaters() {
   return (

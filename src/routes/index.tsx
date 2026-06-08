@@ -6,8 +6,9 @@ import { AtomBuilder } from "@/components/site/AtomBuilder";
 import { HeroFloaters } from "@/components/site/HeroFloaters";
 import { TeacherScroll } from "@/components/site/TeacherScroll";
 import { FrameworkScroll } from "@/components/site/FrameworkScroll";
-import transformationImg from "@/assets/transformation.jpg";
-import classroomSolution from "@/assets/classroom-solution.png.asset.json";
+import { BookDemoProvider } from "@/components/site/BookDemoDialog";
+import howKriyasetuWorks from "@/assets/how-kriyasetu-works.png.asset.json";
+
 
 
 export const Route = createFileRoute("/")({
@@ -36,43 +37,45 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div id="top" className="min-h-screen bg-background text-foreground">
-      <Nav />
-      <Hero />
-      <Marquee />
-      <Problem />
-      <Solution />
-      <TeacherScroll />
+    <BookDemoProvider>
+      <div id="top" className="min-h-screen bg-background text-foreground">
+        <Nav />
+        <Hero />
+        <Marquee />
+        <Problem />
+        <Shift />
+        <Solution />
+        <TeacherScroll />
 
-      <MidCTA
-        heading="Ready to see the shift in your classrooms?"
-        sub="Join institutions already moving from memorisation to mastery."
-        primary={{ label: "Book a Demo", href: "#cta" }}
-        secondary={{ label: "See How It Works", href: "#how" }}
-      />
-      <Shift />
-      <Experience />
-      <MidCTA
-        heading="Bring this into your institution."
-        sub="Every subject. Every grade. The same depth of experience."
-        primary={{ label: "Partner With Us", href: "#cta" }}
-        secondary={{ label: "Explore the Framework", href: "#how" }}
-        accent
-      />
-      <How />
-      <MidCTA
-        heading="Your students deserve to own what they learn."
-        sub="Let's build a learning system designed around your institution."
-        primary={{ label: "Schedule a Conversation", href: "#cta" }}
-      />
-      <AI />
-      <WhyInstitutions />
-      <Vision />
-      <CTA />
-      <Footer />
-    </div>
+        <MidCTA
+          heading="Ready to see the shift in your classrooms?"
+          sub="Join institutions already moving from memorisation to mastery."
+          primary={{ label: "Book a Demo", href: "#cta" }}
+          secondary={{ label: "See How It Works", href: "#how" }}
+        />
+        <Experience />
+        <MidCTA
+          heading="Bring this into your institution."
+          sub="Every subject. Every grade. The same depth of experience."
+          primary={{ label: "Partner With Us", href: "#cta" }}
+          secondary={{ label: "Explore the Framework", href: "#how" }}
+          accent
+        />
+        <How />
+        <MidCTA
+          heading="Your students deserve to own what they learn."
+          sub="Let's build a learning system designed around your institution."
+          primary={{ label: "Schedule a Conversation", href: "#cta" }}
+        />
+        <WhyInstitutions />
+        <Vision />
+        <CTA />
+        <Footer />
+      </div>
+    </BookDemoProvider>
   );
 }
+
 
 /* ------------------------------- EXPERIENCE ------------------------------ */
 function Experience() {
@@ -134,17 +137,29 @@ function Hero() {
               "radial-gradient(60% 50% at 70% 30%, color-mix(in oklab, var(--accent) 14%, transparent), transparent 60%), radial-gradient(50% 60% at 20% 70%, color-mix(in oklab, var(--primary) 12%, transparent), transparent 60%)",
           }}
         />
+        {/* Moving gradient orbs */}
+        <div
+          className="absolute -top-32 -left-32 w-[520px] h-[520px] rounded-full blur-3xl opacity-50 animate-[float-slow_14s_ease-in-out_infinite]"
+          style={{ background: "radial-gradient(circle, color-mix(in oklab, var(--brand-orange) 50%, transparent), transparent 70%)" }}
+        />
+        <div
+          className="absolute -bottom-32 -right-32 w-[600px] h-[600px] rounded-full blur-3xl opacity-40 animate-[float-slow_18s_ease-in-out_infinite_reverse]"
+          style={{ background: "radial-gradient(circle, color-mix(in oklab, var(--brand-blue) 45%, transparent), transparent 70%)" }}
+        />
         {/* Floating educational artifacts */}
         <HeroFloaters />
         {/* Yantra — softer, float */}
-        <Yantra className="absolute -right-48 -top-24 w-[900px] opacity-25 float-slow pointer-events-none" />
+        <Yantra className="absolute -right-48 -top-24 w-[900px] opacity-30 float-slow pointer-events-none" />
         {/* Vignette fade to bg at bottom */}
         <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-background to-transparent pointer-events-none" />
         {/* Subtle top fade */}
         <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background/60 to-transparent pointer-events-none" />
       </div>
 
-      <div className="container-px mx-auto max-w-7xl flex-1 flex flex-col justify-center">
+
+      <div className="container-px mx-auto max-w-7xl flex-1 grid lg:grid-cols-12 gap-10 items-center">
+        <div className="lg:col-span-7 flex flex-col justify-center">
+
         {/* Eyebrow */}
         <p className="reveal inline-flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-muted-foreground">
           <span className="h-px w-8 bg-accent flex-shrink-0" />
@@ -203,20 +218,44 @@ function Hero() {
           </a>
         </div>
 
-
         {/* Social proof */}
         <p className="reveal reveal-delay-3 mt-6 text-xs text-muted-foreground/70">
           Trusted by schools, PU colleges & NEET/JEE institutions across India &amp; GCC
         </p>
+      </div>
 
-        {/* Journey steps — visual cards */}
-        <div className="reveal reveal-delay-3 mt-16 md:mt-20 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+      {/* Hero preview image */}
+      <div className="lg:col-span-5 relative reveal reveal-delay-2">
+        <div className="relative rounded-3xl overflow-hidden border border-border bg-card shadow-2xl rotate-[-1.5deg] hover:rotate-0 transition-transform duration-500">
+          <img
+            src={howKriyasetuWorks.url}
+            alt="KriyaSetu in a classroom — interactive simulation, curriculum-aligned content, engaged learners"
+            className="w-full h-auto block"
+            loading="eager"
+          />
+          <div className="absolute top-3 left-3 flex items-center gap-2 rounded-full bg-background/95 backdrop-blur px-3 py-1.5 text-[10px] uppercase tracking-widest border border-border">
+            <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--brand-orange)] animate-pulse" />
+            Live in classrooms
+          </div>
+        </div>
+        {/* floating mini badge */}
+        <div className="hidden md:flex absolute -bottom-4 -left-4 items-center gap-2 bg-background border border-border rounded-2xl px-4 py-3 shadow-lg animate-[float_6s_ease-in-out_infinite]">
+          <span className="text-xl">✨</span>
+          <div>
+            <div className="text-xs font-display">NCERT aligned</div>
+            <div className="text-[10px] text-muted-foreground">Curriculum first</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Journey steps — full-width below */}
+      <div className="lg:col-span-12 w-full">
+        <div className="reveal reveal-delay-3 mt-10 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
           {steps.map(({ num, label, desc, symbol }, i) => (
             <div
               key={label}
               className="relative group rounded-2xl border border-border bg-card/60 backdrop-blur-sm px-5 py-6 md:px-6 md:py-7 hover:border-accent/40 hover:bg-card transition-all duration-300 cursor-default"
             >
-              {/* Connector arrow on desktop */}
               {i < 3 && (
                 <div className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-10 items-center justify-center w-8 h-8 rounded-full bg-background border border-border text-muted-foreground/40 text-xs">
                   →
@@ -235,6 +274,8 @@ function Hero() {
           ))}
         </div>
       </div>
+      </div>
+
 
       {/* Scroll cue */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-muted-foreground/40 animate-bounce pointer-events-none">
@@ -304,24 +345,24 @@ const SHIFT_ITEMS = [
 
 function Shift() {
   return (
-    <section id="shift" className="relative py-28 md:py-36 bg-[color:var(--brand-ink)] text-background overflow-hidden">
-      {/* Subtle yantra in background */}
-      <div aria-hidden className="absolute -right-32 top-1/2 -translate-y-1/2 opacity-[0.04] pointer-events-none">
+    <section id="shift" className="relative py-28 md:py-36 bg-secondary/40 overflow-hidden">
+      <div aria-hidden className="absolute -right-32 top-1/2 -translate-y-1/2 opacity-[0.05] pointer-events-none">
         <Yantra className="w-[600px]" />
       </div>
 
       <div className="container-px mx-auto max-w-7xl">
-        {/* Header */}
         <div className="grid lg:grid-cols-12 gap-10 mb-14 items-end">
           <div className="lg:col-span-6">
-            <p className="text-xs uppercase tracking-[0.22em] text-background/50">The Shift</p>
-            <h2 className="mt-5 font-display text-4xl md:text-5xl leading-[1.05]">
+            <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
+              <span className="inline-block h-px w-8 align-middle bg-accent mr-3" />The Shift
+            </p>
+            <h2 className="mt-5 font-display text-4xl md:text-5xl leading-[1.05] text-foreground">
               From teaching concepts to{" "}
-              <em className="not-italic text-accent">building competence.</em>
+              <em className="not-italic" style={{ color: "var(--brand-orange)" }}>building competence.</em>
             </h2>
           </div>
           <div className="lg:col-span-6">
-            <p className="text-background/60 leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed text-lg">
               Kriyasetu reframes the classroom as a journey. Every concept becomes
               an experience — visualised, applied, and reflected upon — until it
               settles as real, owned understanding.
@@ -329,39 +370,20 @@ function Shift() {
           </div>
         </div>
 
-        {/* Transformation cards — scannable on mobile */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {SHIFT_ITEMS.map(({ icon, category, before, after, stat }) => (
             <ShiftCard key={category} icon={icon} category={category} before={before} after={after} stat={stat} />
           ))}
-          {/* Photo card */}
-          <div className="sm:col-span-2 lg:col-span-1 relative rounded-2xl overflow-hidden border border-white/10 min-h-[200px]">
-            <img
-              src={transformationImg}
-              alt="Teacher leading an experiential classroom"
-              loading="lazy"
-              width={1280}
-              height={960}
-              className="absolute inset-0 w-full h-full object-cover opacity-60"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[var(--brand-ink)] via-transparent to-transparent" />
-            <div className="absolute bottom-5 left-5 right-5">
-              <p className="text-sm text-background/80 leading-snug">
-                "The moment a student <em className="text-accent not-italic">experiences</em> a concept — they own it."
-              </p>
-            </div>
-          </div>
         </div>
 
-        {/* Column labels — compact, below cards */}
         <div className="mt-6 flex items-center gap-6 text-xs uppercase tracking-[0.2em]">
-          <span className="flex items-center gap-2 text-background/40">
-            <span className="h-3 w-3 rounded-sm border border-white/20 bg-white/5" />
+          <span className="flex items-center gap-2 text-muted-foreground">
+            <span className="h-3 w-3 rounded-sm border border-border bg-background" />
             Before
           </span>
-          <span className="text-background/30">→</span>
-          <span className="flex items-center gap-2 text-accent">
-            <span className="h-3 w-3 rounded-sm border border-accent/40 bg-accent/10" />
+          <span className="text-muted-foreground/60">→</span>
+          <span className="flex items-center gap-2" style={{ color: "var(--brand-orange)" }}>
+            <span className="h-3 w-3 rounded-sm border border-[color:var(--brand-orange)]/40 bg-[color:var(--brand-orange)]/10" />
             With Kriyasetu
           </span>
         </div>
@@ -376,28 +398,25 @@ function ShiftCard({
   icon: string; category: string; before: string; after: string; stat: string;
 }) {
   return (
-    <div className="rounded-2xl border border-white/8 bg-white/[0.03] overflow-hidden group hover:border-accent/30 transition-all duration-300">
-      {/* Top: category */}
+    <div className="rounded-2xl border border-border bg-card overflow-hidden group hover:border-accent/40 hover:shadow-md transition-all duration-300">
       <div className="px-5 pt-5 pb-3 flex items-center gap-2.5">
         <span className="text-xl">{icon}</span>
-        <span className="text-xs uppercase tracking-[0.2em] text-background/50">{category}</span>
-        <span className="ml-auto text-sm font-display text-accent/60">{stat}</span>
+        <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{category}</span>
+        <span className="ml-auto text-sm font-display" style={{ color: "var(--brand-orange)" }}>{stat}</span>
       </div>
-      {/* Before */}
-      <div className="mx-4 mb-2 px-4 py-3 rounded-xl border border-white/8 bg-white/[0.02]">
-        <div className="text-[10px] uppercase tracking-widest text-background/30 mb-1">Before</div>
-        <p className="text-background/50 text-sm line-through decoration-white/20">{before}</p>
+      <div className="mx-4 mb-2 px-4 py-3 rounded-xl border border-border bg-secondary/40">
+        <div className="text-[10px] uppercase tracking-widest text-muted-foreground mb-1">Before</div>
+        <p className="text-muted-foreground text-sm line-through decoration-muted-foreground/30">{before}</p>
       </div>
-      {/* Arrow */}
-      <div className="flex justify-center py-1 text-accent/40 text-lg group-hover:text-accent transition-colors">↓</div>
-      {/* After */}
-      <div className="mx-4 mb-5 px-4 py-3 rounded-xl border border-accent/25 bg-accent/[0.06]">
-        <div className="text-[10px] uppercase tracking-widest text-accent/60 mb-1">With Kriyasetu</div>
-        <p className="text-background text-sm font-medium">{after}</p>
+      <div className="flex justify-center py-1 text-[color:var(--brand-orange)]/60 text-lg group-hover:text-[color:var(--brand-orange)] transition-colors">↓</div>
+      <div className="mx-4 mb-5 px-4 py-3 rounded-xl border border-[color:var(--brand-orange)]/25 bg-[color:var(--brand-orange)]/[0.06]">
+        <div className="text-[10px] uppercase tracking-widest text-[color:var(--brand-orange)]/80 mb-1">With Kriyasetu</div>
+        <p className="text-foreground text-sm font-medium">{after}</p>
       </div>
     </div>
   );
 }
+
 
 /* ---------------------------------- HOW --------------------------------- */
 function How() {
@@ -409,34 +428,8 @@ function How() {
   );
 }
 
-/* ----------------------------------- AI --------------------------------- */
-function AI() {
-  const items = [
-    ["Faculty support systems", "Lesson prep, question banks, and explanations — drafted in minutes, refined by you."],
-    ["Personalised learning", "Each student gets help that matches their pace, gaps, and curiosity."],
-    ["Intelligent reinforcement", "AI revisits weak concepts at the right time, the right depth."],
-    ["Content augmentation", "Visuals, analogies, and examples generated around your syllabus."],
-  ];
-  return (
-    <Section id="ai" eyebrow="AI · Carefully placed" title={<>AI as a teaching <em className="text-accent not-italic">enabler</em>, not a replacement.</>}
-      lead="Teachers remain at the centre. AI removes friction — preparation, personalisation, and consistency — so educators can focus on the human work that matters.">
-      <div className="grid lg:grid-cols-5 gap-10 items-start">
-        <div className="lg:col-span-2 relative aspect-square max-w-md">
-          <Yantra className="absolute inset-0 w-full h-full" />
-        </div>
-        <div className="lg:col-span-3 grid sm:grid-cols-2 gap-5">
-          {items.map(([t, d]) => (
-            <div key={t} className="rounded-2xl border border-border p-6 bg-card">
-              <div className="h-1.5 w-8 bg-accent rounded-full" />
-              <h3 className="mt-4 font-display text-xl">{t}</h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{d}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </Section>
-  );
-}
+
+
 
 /* ------------------------------- WHY INST ------------------------------- */
 function WhyInstitutions() {
@@ -603,16 +596,8 @@ function Section({
 
 /* ------------------------------- SOLUTION -------------------------------- */
 function Solution() {
-  const annotations: { x: string; y: string; label: string; sub: string; side: "left" | "right" | "top" | "bottom" }[] = [
-    { x: "26%", y: "44%", label: "Teacher in flow", sub: "Guides, doesn't lecture", side: "left" },
-    { x: "52%", y: "30%", label: "Live concept canvas", sub: "Curriculum-aligned visuals", side: "top" },
-    { x: "82%", y: "22%", label: "NCERT aligned", sub: "Mapped to syllabus", side: "right" },
-    { x: "18%", y: "78%", label: "Student devices", sub: "Same concept, personal pace", side: "bottom" },
-    { x: "78%", y: "78%", label: "Engaged learners", sub: "From passive to participating", side: "bottom" },
-  ];
-
   return (
-    <section id="solution" className="relative py-28 md:py-36 overflow-hidden">
+    <section id="solution" className="relative py-20 md:py-28 overflow-hidden">
       <div className="container-px mx-auto max-w-7xl">
         <div className="max-w-3xl">
           <p className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-muted-foreground">
@@ -628,51 +613,13 @@ function Solution() {
           </p>
         </div>
 
-        <div className="relative mt-14 rounded-3xl overflow-hidden border border-border" style={{ boxShadow: "var(--shadow-elev)" }}>
+        <div className="relative mt-12 rounded-3xl overflow-hidden border border-border bg-card" style={{ boxShadow: "var(--shadow-elev)" }}>
           <img
-            src={classroomSolution.url}
-            alt="A KriyaSetu-enabled classroom where the teacher guides experiential learning on a smart board while students follow on personal devices"
+            src={howKriyasetuWorks.url}
+            alt="How KriyaSetu works — interactive simulations, NCERT-aligned content, real-world context, video explainers, and an empowered teacher in a real classroom"
             className="w-full h-auto block"
             loading="lazy"
           />
-
-          {/* annotation overlay */}
-          <div className="absolute inset-0 pointer-events-none">
-            {annotations.map((a, i) => (
-              <div
-                key={i}
-                className="absolute"
-                style={{ left: a.x, top: a.y, transform: "translate(-50%, -50%)" }}
-              >
-                {/* dot */}
-                <span
-                  className="block h-3 w-3 rounded-full ring-4 ring-background/70"
-                  style={{ background: "var(--brand-orange)", boxShadow: "0 0 0 8px color-mix(in oklab, var(--brand-orange) 18%, transparent)" }}
-                />
-                {/* label card */}
-                <div
-                  className={`absolute whitespace-nowrap rounded-lg bg-background/95 backdrop-blur border border-border px-3 py-1.5 text-xs shadow-md ${
-                    a.side === "left" ? "right-6 top-1/2 -translate-y-1/2" :
-                    a.side === "right" ? "left-6 top-1/2 -translate-y-1/2" :
-                    a.side === "top" ? "left-1/2 -translate-x-1/2 bottom-6" :
-                    "left-1/2 -translate-x-1/2 top-6"
-                  }`}
-                >
-                  <div className="font-display text-foreground leading-tight">{a.label}</div>
-                  <div className="text-[10px] text-muted-foreground">{a.sub}</div>
-                </div>
-                {/* connector line */}
-                <span
-                  className={`absolute bg-[color:var(--brand-orange)]/60 ${
-                    a.side === "left" ? "right-3 top-1/2 h-px w-3" :
-                    a.side === "right" ? "left-3 top-1/2 h-px w-3" :
-                    a.side === "top" ? "left-1/2 -translate-x-1/2 bottom-3 w-px h-3" :
-                    "left-1/2 -translate-x-1/2 top-3 w-px h-3"
-                  }`}
-                />
-              </div>
-            ))}
-          </div>
         </div>
 
         <div className="mt-10 grid sm:grid-cols-3 gap-4">
@@ -707,4 +654,5 @@ function Solution() {
     </section>
   );
 }
+
 
