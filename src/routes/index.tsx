@@ -24,11 +24,11 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:title", content: "Kriya Setu — Experiential Learning Transformation" },
       { property: "og:description", content: "An AI-powered experiential learning platform for institutions, teachers and students." },
-      { property: "og:image", content: "/logo.png" },
+      { property: "og:image", content: "https://kriya-setu-website.vercel.app/og-image.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Kriya Setu — Experiential Learning Transformation" },
       { name: "twitter:description", content: "An AI-powered experiential learning platform for institutions, teachers and students." },
-      { name: "twitter:image", content: "/logo.png" },
+      { name: "twitter:image", content: "https://kriya-setu-website.vercel.app/og-image.jpg" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
