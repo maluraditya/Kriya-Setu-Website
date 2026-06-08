@@ -307,24 +307,24 @@ const SHIFT_ITEMS = [
 
 function Shift() {
   return (
-    <section id="shift" className="relative py-28 md:py-36 bg-[color:var(--brand-ink)] text-background overflow-hidden">
-      {/* Subtle yantra in background */}
-      <div aria-hidden className="absolute -right-32 top-1/2 -translate-y-1/2 opacity-[0.04] pointer-events-none">
+    <section id="shift" className="relative py-28 md:py-36 bg-secondary/40 overflow-hidden">
+      <div aria-hidden className="absolute -right-32 top-1/2 -translate-y-1/2 opacity-[0.05] pointer-events-none">
         <Yantra className="w-[600px]" />
       </div>
 
       <div className="container-px mx-auto max-w-7xl">
-        {/* Header */}
         <div className="grid lg:grid-cols-12 gap-10 mb-14 items-end">
           <div className="lg:col-span-6">
-            <p className="text-xs uppercase tracking-[0.22em] text-background/50">The Shift</p>
-            <h2 className="mt-5 font-display text-4xl md:text-5xl leading-[1.05]">
+            <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
+              <span className="inline-block h-px w-8 align-middle bg-accent mr-3" />The Shift
+            </p>
+            <h2 className="mt-5 font-display text-4xl md:text-5xl leading-[1.05] text-foreground">
               From teaching concepts to{" "}
-              <em className="not-italic text-accent">building competence.</em>
+              <em className="not-italic" style={{ color: "var(--brand-orange)" }}>building competence.</em>
             </h2>
           </div>
           <div className="lg:col-span-6">
-            <p className="text-background/60 leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed text-lg">
               Kriyasetu reframes the classroom as a journey. Every concept becomes
               an experience — visualised, applied, and reflected upon — until it
               settles as real, owned understanding.
@@ -332,39 +332,20 @@ function Shift() {
           </div>
         </div>
 
-        {/* Transformation cards — scannable on mobile */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {SHIFT_ITEMS.map(({ icon, category, before, after, stat }) => (
             <ShiftCard key={category} icon={icon} category={category} before={before} after={after} stat={stat} />
           ))}
-          {/* Photo card */}
-          <div className="sm:col-span-2 lg:col-span-1 relative rounded-2xl overflow-hidden border border-white/10 min-h-[200px]">
-            <img
-              src={transformationImg}
-              alt="Teacher leading an experiential classroom"
-              loading="lazy"
-              width={1280}
-              height={960}
-              className="absolute inset-0 w-full h-full object-cover opacity-60"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[var(--brand-ink)] via-transparent to-transparent" />
-            <div className="absolute bottom-5 left-5 right-5">
-              <p className="text-sm text-background/80 leading-snug">
-                "The moment a student <em className="text-accent not-italic">experiences</em> a concept — they own it."
-              </p>
-            </div>
-          </div>
         </div>
 
-        {/* Column labels — compact, below cards */}
         <div className="mt-6 flex items-center gap-6 text-xs uppercase tracking-[0.2em]">
-          <span className="flex items-center gap-2 text-background/40">
-            <span className="h-3 w-3 rounded-sm border border-white/20 bg-white/5" />
+          <span className="flex items-center gap-2 text-muted-foreground">
+            <span className="h-3 w-3 rounded-sm border border-border bg-background" />
             Before
           </span>
-          <span className="text-background/30">→</span>
-          <span className="flex items-center gap-2 text-accent">
-            <span className="h-3 w-3 rounded-sm border border-accent/40 bg-accent/10" />
+          <span className="text-muted-foreground/60">→</span>
+          <span className="flex items-center gap-2" style={{ color: "var(--brand-orange)" }}>
+            <span className="h-3 w-3 rounded-sm border border-[color:var(--brand-orange)]/40 bg-[color:var(--brand-orange)]/10" />
             With Kriyasetu
           </span>
         </div>
@@ -379,28 +360,25 @@ function ShiftCard({
   icon: string; category: string; before: string; after: string; stat: string;
 }) {
   return (
-    <div className="rounded-2xl border border-white/8 bg-white/[0.03] overflow-hidden group hover:border-accent/30 transition-all duration-300">
-      {/* Top: category */}
+    <div className="rounded-2xl border border-border bg-card overflow-hidden group hover:border-accent/40 hover:shadow-md transition-all duration-300">
       <div className="px-5 pt-5 pb-3 flex items-center gap-2.5">
         <span className="text-xl">{icon}</span>
-        <span className="text-xs uppercase tracking-[0.2em] text-background/50">{category}</span>
-        <span className="ml-auto text-sm font-display text-accent/60">{stat}</span>
+        <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{category}</span>
+        <span className="ml-auto text-sm font-display" style={{ color: "var(--brand-orange)" }}>{stat}</span>
       </div>
-      {/* Before */}
-      <div className="mx-4 mb-2 px-4 py-3 rounded-xl border border-white/8 bg-white/[0.02]">
-        <div className="text-[10px] uppercase tracking-widest text-background/30 mb-1">Before</div>
-        <p className="text-background/50 text-sm line-through decoration-white/20">{before}</p>
+      <div className="mx-4 mb-2 px-4 py-3 rounded-xl border border-border bg-secondary/40">
+        <div className="text-[10px] uppercase tracking-widest text-muted-foreground mb-1">Before</div>
+        <p className="text-muted-foreground text-sm line-through decoration-muted-foreground/30">{before}</p>
       </div>
-      {/* Arrow */}
-      <div className="flex justify-center py-1 text-accent/40 text-lg group-hover:text-accent transition-colors">↓</div>
-      {/* After */}
-      <div className="mx-4 mb-5 px-4 py-3 rounded-xl border border-accent/25 bg-accent/[0.06]">
-        <div className="text-[10px] uppercase tracking-widest text-accent/60 mb-1">With Kriyasetu</div>
-        <p className="text-background text-sm font-medium">{after}</p>
+      <div className="flex justify-center py-1 text-[color:var(--brand-orange)]/60 text-lg group-hover:text-[color:var(--brand-orange)] transition-colors">↓</div>
+      <div className="mx-4 mb-5 px-4 py-3 rounded-xl border border-[color:var(--brand-orange)]/25 bg-[color:var(--brand-orange)]/[0.06]">
+        <div className="text-[10px] uppercase tracking-widest text-[color:var(--brand-orange)]/80 mb-1">With Kriyasetu</div>
+        <p className="text-foreground text-sm font-medium">{after}</p>
       </div>
     </div>
   );
 }
+
 
 /* ---------------------------------- HOW --------------------------------- */
 function How() {
