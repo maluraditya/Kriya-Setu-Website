@@ -390,34 +390,8 @@ function How() {
   );
 }
 
-/* ----------------------------------- AI --------------------------------- */
-function AI() {
-  const items = [
-    ["Faculty support systems", "Lesson prep, question banks, and explanations — drafted in minutes, refined by you."],
-    ["Personalised learning", "Each student gets help that matches their pace, gaps, and curiosity."],
-    ["Intelligent reinforcement", "AI revisits weak concepts at the right time, the right depth."],
-    ["Content augmentation", "Visuals, analogies, and examples generated around your syllabus."],
-  ];
-  return (
-    <Section id="ai" eyebrow="AI · Carefully placed" title={<>AI as a teaching <em className="text-accent not-italic">enabler</em>, not a replacement.</>}
-      lead="Teachers remain at the centre. AI removes friction — preparation, personalisation, and consistency — so educators can focus on the human work that matters.">
-      <div className="grid lg:grid-cols-5 gap-10 items-start">
-        <div className="lg:col-span-2 relative aspect-square max-w-md">
-          <Yantra className="absolute inset-0 w-full h-full" />
-        </div>
-        <div className="lg:col-span-3 grid sm:grid-cols-2 gap-5">
-          {items.map(([t, d]) => (
-            <div key={t} className="rounded-2xl border border-border p-6 bg-card">
-              <div className="h-1.5 w-8 bg-accent rounded-full" />
-              <h3 className="mt-4 font-display text-xl">{t}</h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{d}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </Section>
-  );
-}
+
+
 
 /* ------------------------------- WHY INST ------------------------------- */
 function WhyInstitutions() {
