@@ -157,7 +157,9 @@ function Hero() {
       </div>
 
 
-      <div className="container-px mx-auto max-w-7xl flex-1 flex flex-col justify-center">
+      <div className="container-px mx-auto max-w-7xl flex-1 grid lg:grid-cols-12 gap-10 items-center">
+        <div className="lg:col-span-7 flex flex-col justify-center">
+
         {/* Eyebrow */}
         <p className="reveal inline-flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-muted-foreground">
           <span className="h-px w-8 bg-accent flex-shrink-0" />
