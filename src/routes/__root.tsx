@@ -49,8 +49,8 @@ export const Route = createRootRoute({
         { property: "og:type", content: "website" },
         { property: "og:title", content: "Kriya Setu — Bridging Knowledge and Real Competence" },
         { property: "og:description", content: "AI-powered experiential learning platform helping institutions move from memorisation to mastery." },
-        { property: "og:image", content: `${getBaseUrl()}/og-image.jpg` },
-        { property: "og:image:type", content: "image/jpeg" },
+        { property: "og:image", content: `${getBaseUrl()}/og-image.png` },
+        { property: "og:image:type", content: "image/png" },
         { property: "og:image:width", content: "1200" },
         { property: "og:image:height", content: "630" },
         { property: "og:image:alt", content: "Kriya Setu — Bridging Knowledge and Real Competence" },
@@ -59,7 +59,7 @@ export const Route = createRootRoute({
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: "Kriya Setu — Bridging Knowledge and Real Competence" },
         { name: "twitter:description", content: "AI-powered experiential learning platform helping institutions move from memorisation to mastery." },
-        { name: "twitter:image", content: `${getBaseUrl()}/og-image.jpg` },
+        { name: "twitter:image", content: `${getBaseUrl()}/og-image.png` },
       ],
     links: [
       {
