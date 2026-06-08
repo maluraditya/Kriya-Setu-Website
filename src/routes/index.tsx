@@ -249,7 +249,7 @@ function Hero() {
       </div>
 
       {/* Journey steps — full-width below */}
-      <div className="lg:col-span-12 container-px mx-auto max-w-7xl w-full">
+      <div className="lg:col-span-12 w-full">
         <div className="reveal reveal-delay-3 mt-10 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
           {steps.map(({ num, label, desc, symbol }, i) => (
             <div
