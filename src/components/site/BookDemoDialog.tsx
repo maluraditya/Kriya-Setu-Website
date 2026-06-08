@@ -75,7 +75,7 @@ export function BookDemoProvider({ children }: { children: ReactNode }) {
           <DialogHeader>
             <DialogTitle className="font-display text-2xl">Book a Demo</DialogTitle>
             <DialogDescription>
-              See KriyaSetu in action. We'll tailor the walkthrough to your institution.
+              See Kriya Setu in action. We'll tailor the walkthrough to your institution.
             </DialogDescription>
           </DialogHeader>
           <form onSubmit={onSubmit} className="grid gap-3 mt-2">

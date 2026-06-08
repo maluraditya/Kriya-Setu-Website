@@ -7,28 +7,36 @@ import { HeroFloaters } from "@/components/site/HeroFloaters";
 import { TeacherScroll } from "@/components/site/TeacherScroll";
 import { FrameworkScroll } from "@/components/site/FrameworkScroll";
 import { BookDemoProvider } from "@/components/site/BookDemoDialog";
-import howKriyasetuWorks from "@/assets/how-kriyasetu-works.png.asset.json";
-
+import howKriyasetuWorks from "@/assets/how-kriyasetu-works-local.png";
+import experientialHero from "@/assets/experiential_learning_hero.png";
+import { Reveal } from "@/components/site/Reveal";
+import { useState } from "react";
 
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Kriyasetu — Bridging Knowledge and Real Competence" },
+      { title: "Kriya Setu — Bridging Knowledge and Real Competence" },
       {
         name: "description",
         content:
-          "Kriyasetu helps institutions transform teaching and learning through experiential systems, conceptual clarity, and AI-enabled education.",
+          "Kriya Setu helps institutions transform teaching and learning through experiential systems, conceptual clarity, and AI-enabled education.",
       },
-      { property: "og:title", content: "Kriyasetu — Experiential Learning Transformation" },
+      { property: "og:url", content: "https://kriyasetu.com" },
+      { property: "og:title", content: "Kriya Setu — Experiential Learning Transformation" },
       { property: "og:description", content: "An AI-powered experiential learning platform for institutions, teachers and students." },
+      { property: "og:image", content: "https://kriyasetu.com/logo.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Kriya Setu — Experiential Learning Transformation" },
+      { name: "twitter:description", content: "An AI-powered experiential learning platform for institutions, teachers and students." },
+      { name: "twitter:image", content: "https://kriyasetu.com/logo.png" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
       },
     ],
   }),
@@ -41,10 +49,9 @@ function Index() {
       <div id="top" className="min-h-screen bg-background text-foreground">
         <Nav />
         <Hero />
-        <Marquee />
         <Problem />
-        <Shift />
         <Solution />
+        <Shift />
         <TeacherScroll />
 
         <MidCTA
@@ -80,7 +87,7 @@ function Index() {
 /* ------------------------------- EXPERIENCE ------------------------------ */
 function Experience() {
   return (
-    <section id="experience" className="relative py-28 md:py-36 overflow-hidden">
+    <section id="experience" className="relative py-12 md:py-16 overflow-hidden">
       <div
         aria-hidden
         className="absolute inset-x-0 -top-1/3 h-[120%] -z-10 opacity-70"
@@ -90,6 +97,7 @@ function Experience() {
         }}
       />
       <div className="container-px mx-auto max-w-7xl">
+        <Reveal delay={0.1}>
         <div className="max-w-2xl mb-12">
           <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
             <span className="inline-block h-px w-8 align-middle bg-accent mr-3" />
@@ -106,11 +114,14 @@ function Experience() {
           </h2>
           <p className="mt-5 text-muted-foreground text-lg leading-relaxed">
             Add a proton — a new element appears. Add an electron — the atom calms.
-            This isn't a video. It's the same kind of moment Kriyasetu engineers
+            This isn't a video. It's the same kind of moment Kriya Setu engineers
             into every classroom: <span className="text-foreground italic">"oh — I get it."</span>
           </p>
         </div>
+        </Reveal>
+        <Reveal delay={0.25}>
         <AtomBuilder />
+        </Reveal>
       </div>
     </section>
   );
@@ -126,7 +137,7 @@ function Hero() {
   ];
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-20 pb-16">
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-20 pb-14">
       {/* Background layer */}
       <div aria-hidden className="absolute inset-0 -z-10 overflow-hidden">
         {/* Warm cream base with soft chromatic glows */}
@@ -157,21 +168,39 @@ function Hero() {
       </div>
 
 
-      <div className="container-px mx-auto max-w-7xl flex-1 grid lg:grid-cols-12 gap-10 items-center">
-        <div className="lg:col-span-7 flex flex-col justify-center">
-
-        {/* Eyebrow */}
-        <p className="reveal inline-flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-muted-foreground">
-          <span className="h-px w-8 bg-accent flex-shrink-0" />
-          Experiential Learning · Conceptual Clarity · AI
-        </p>
+      <div className="container-px mx-auto max-w-7xl flex-1 grid lg:grid-cols-12 gap-10 xl:gap-14 items-center">
+        <div className="lg:col-span-6 flex flex-col justify-center">
 
         {/* Headline */}
-        <h1 className="reveal reveal-delay-1 mt-6 font-display text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] leading-[1.01] tracking-tight max-w-4xl">
-          Learning should be
-          <br />
-          <span className="relative inline-block">
-            <span style={{ color: "var(--brand-orange)" }}>experienced</span>
+        <Reveal delay={0.1}>
+        <h1
+          aria-label="Learning should be experienced not memorised."
+          className="mt-6 font-display text-[clamp(2rem,5.5vw,4.05rem)] lg:text-[clamp(3.15rem,3.7vw,4.15rem)] leading-[1.08] max-w-[46rem]"
+        >
+          <span className="block whitespace-nowrap">Learning should be</span>
+          <span className="block">
+            <span className="relative inline-block">
+              <span style={{ color: "var(--brand-blue)" }}>experienced</span>
+              <svg
+                className="absolute -bottom-2 left-0 w-full"
+                height="10"
+                viewBox="0 0 200 10"
+                preserveAspectRatio="none"
+              >
+                <path
+                  d="M2 7 Q 60 1 120 6 T 198 4"
+                  stroke="var(--brand-blue)"
+                  strokeWidth="2.5"
+                  fill="none"
+                  strokeLinecap="round"
+                  opacity="0.5"
+                />
+              </svg>
+            </span>{" "}
+            not
+          </span>{" "}
+          <span className="relative block w-fit">
+            <span style={{ color: "var(--brand-orange)" }}>memorised</span>
             <svg
               className="absolute -bottom-2 left-0 w-full"
               height="10"
@@ -179,29 +208,30 @@ function Hero() {
               preserveAspectRatio="none"
             >
               <path
-                d="M2 7 Q 60 1 120 6 T 198 4"
+                d="M2 6 Q 62 2 120 7 T 198 5"
                 stroke="var(--brand-orange)"
                 strokeWidth="2.5"
                 fill="none"
                 strokeLinecap="round"
-                opacity="0.5"
+                opacity="0.48"
               />
             </svg>
-          </span>{" "}
-          not
-          <br />
-          memorized.
+          </span>
         </h1>
+        </Reveal>
 
         {/* Sub */}
-        <p className="reveal reveal-delay-2 mt-7 text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed">
-          KriyaSetu bridges the gap between memorisation and understanding through
+        <Reveal delay={0.25}>
+        <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
+          Kriya Setu bridges the gap between memorisation and understanding through
           curriculum-aligned experiential learning, helping educators teach with
           clarity and students learn with meaning.
         </p>
+        </Reveal>
 
         {/* CTAs */}
-        <div className="reveal reveal-delay-3 mt-9 flex flex-wrap items-center gap-3">
+        <Reveal delay={0.4}>
+        <div className="mt-9 flex flex-wrap items-center gap-3">
           <a
             href="#experience"
             className="group inline-flex items-center gap-2 rounded-full px-7 py-4 text-sm font-medium transition-all hover:gap-3"
@@ -217,63 +247,59 @@ function Hero() {
             Book a Demo
           </a>
         </div>
+        </Reveal>
 
-        {/* Social proof */}
-        <p className="reveal reveal-delay-3 mt-6 text-xs text-muted-foreground/70">
-          Trusted by schools, PU colleges & NEET/JEE institutions across India &amp; GCC
-        </p>
-      </div>
+        </div>
 
-      {/* Hero preview image */}
-      <div className="lg:col-span-5 relative reveal reveal-delay-2">
-        <div className="relative rounded-3xl overflow-hidden border border-border bg-card shadow-2xl rotate-[-1.5deg] hover:rotate-0 transition-transform duration-500">
+      {/* Hero preview */}
+      <Reveal delay={0.25} className="lg:col-span-6 relative">
+        <div className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-2xl">
           <img
-            src={howKriyasetuWorks.url}
-            alt="KriyaSetu in a classroom — interactive simulation, curriculum-aligned content, engaged learners"
-            className="w-full h-auto block"
+            src={experientialHero}
+            alt="Students engaged in experiential learning with a digital visualization system"
+            className="aspect-[4/3] w-full object-cover object-center"
             loading="eager"
           />
-          <div className="absolute top-3 left-3 flex items-center gap-2 rounded-full bg-background/95 backdrop-blur px-3 py-1.5 text-[10px] uppercase tracking-widest border border-border">
-            <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--brand-orange)] animate-pulse" />
-            Live in classrooms
-          </div>
         </div>
-        {/* floating mini badge */}
-        <div className="hidden md:flex absolute -bottom-4 -left-4 items-center gap-2 bg-background border border-border rounded-2xl px-4 py-3 shadow-lg animate-[float_6s_ease-in-out_infinite]">
-          <span className="text-xl">✨</span>
+        
+        {/* floating mini badge 1 */}
+        <div className="hidden md:flex absolute top-8 -left-6 items-center gap-2 bg-background border border-border rounded-2xl px-4 py-3 shadow-lg animate-[float_6s_ease-in-out_infinite] transform scale-75 lg:scale-100">
+          <span className="text-xl">💡</span>
           <div>
-            <div className="text-xs font-display">NCERT aligned</div>
-            <div className="text-[10px] text-muted-foreground">Curriculum first</div>
+            <div className="text-xs font-display">Concept Clarity</div>
+            <div className="text-[10px] text-muted-foreground">Learning that lasts</div>
           </div>
         </div>
-      </div>
-
-      {/* Journey steps — full-width below */}
-      <div className="lg:col-span-12 w-full">
-        <div className="reveal reveal-delay-3 mt-10 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-          {steps.map(({ num, label, desc, symbol }, i) => (
-            <div
-              key={label}
-              className="relative group rounded-2xl border border-border bg-card/60 backdrop-blur-sm px-5 py-6 md:px-6 md:py-7 hover:border-accent/40 hover:bg-card transition-all duration-300 cursor-default"
-            >
-              {i < 3 && (
-                <div className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-10 items-center justify-center w-8 h-8 rounded-full bg-background border border-border text-muted-foreground/40 text-xs">
-                  →
-                </div>
-              )}
-              <div
-                className="text-2xl mb-3 transition-transform duration-300 group-hover:scale-110 origin-left"
-                style={{ opacity: 0.3 + i * 0.25, color: i >= 2 ? "var(--brand-orange)" : "var(--brand-blue)" }}
-              >
-                {symbol}
-              </div>
-              <div className="text-[10px] text-muted-foreground tabular-nums tracking-widest">{num}</div>
-              <div className="mt-1 font-display text-lg md:text-xl">{label}</div>
-              <div className="text-xs md:text-sm text-muted-foreground mt-1">{desc}</div>
-            </div>
-          ))}
+        
+        {/* floating mini badge 2 */}
+        <div className="hidden md:flex absolute top-16 -right-8 items-center gap-2 bg-background border border-border rounded-2xl px-4 py-3 shadow-lg animate-[float_7s_ease-in-out_infinite_reverse]">
+          <span className="text-xl">🤝</span>
+          <div>
+            <div className="text-xs font-display">Empowering Teachers</div>
+            <div className="text-[10px] text-muted-foreground">Teaching with confidence</div>
+          </div>
         </div>
-      </div>
+
+        {/* floating mini badge 3 */}
+        <div className="hidden md:flex absolute bottom-16 -left-8 items-center gap-2 bg-background border border-border rounded-2xl px-4 py-3 shadow-lg animate-[float_8s_ease-in-out_infinite]">
+          <span className="text-xl text-[color:var(--brand-orange)]">⚡</span>
+          <div>
+            <div className="text-xs font-display">Interactive Learning</div>
+            <div className="text-[10px] text-muted-foreground">Active participation, deeper understanding</div>
+          </div>
+        </div>
+
+        {/* floating mini badge 4 */}
+        <div className="hidden md:flex absolute bottom-8 -right-4 items-center gap-2 bg-background border border-border rounded-2xl px-4 py-3 shadow-lg animate-[float_6s_ease-in-out_infinite_reverse]">
+          <span className="text-xl text-[color:var(--brand-blue)]">🌍</span>
+          <div>
+            <div className="text-xs font-display">Real-World Connection</div>
+            <div className="text-[10px] text-muted-foreground">Applying learning in life</div>
+          </div>
+        </div>
+
+      {/* Journey steps removed to reduce visual clutter in hero */}
+      </Reveal>
       </div>
 
 
@@ -286,18 +312,6 @@ function Hero() {
   );
 }
 
-function Marquee() {
-  const items = ["Schools", "PU Colleges", "NEET / JEE Institutions", "Academic Directors", "Faculty Teams", "Innovation Centres"];
-  return (
-    <div className="border-y border-border bg-secondary/40">
-      <div className="container-px mx-auto max-w-7xl py-5 flex flex-wrap gap-x-10 gap-y-2 items-center justify-center text-xs uppercase tracking-[0.22em] text-muted-foreground">
-        <span className="text-foreground/70">Trusted by educators across</span>
-        {items.map((i) => <span key={i}>{i}</span>)}
-      </div>
-    </div>
-  );
-}
-
 /* -------------------------------- PROBLEM ------------------------------- */
 function Problem() {
   const items: { icon: string; title: string; desc: string }[] = [
@@ -305,10 +319,6 @@ function Problem() {
     { icon: "🧱", title: "Weak foundations",         desc: "Concepts stack on shaky ground — and quietly collapse later." },
     { icon: "🎲", title: "Inconsistent depth",       desc: "The same chapter, taught five different ways across sections." },
     { icon: "📉", title: "Engagement fades",         desc: "Curiosity in week one. Compliance by week ten." },
-    { icon: "💭", title: "Abstract stays abstract",  desc: "Ideas are described, never lived — so they never stick." },
-    { icon: "⚖️", title: "Effort ≠ outcomes",        desc: "Hours of work. Marks that don't reflect the effort." },
-    { icon: "🪟", title: "Slower learners drift",    desc: "The pace is set for the middle. The edges get left behind." },
-    { icon: "🔥", title: "Quiet faculty burnout",   desc: "Teachers carry the weight of a system designed for coverage." },
   ];
   return (
     <Section
@@ -318,16 +328,17 @@ function Problem() {
       lead="Most classrooms are full of effort. The gap isn't intent — it's the system."
     >
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
-        {items.map((it) => (
+        {items.map((it, idx) => (
+          <Reveal key={it.title} delay={0.1 * (idx % 4)}>
           <div
-            key={it.title}
-            className="group relative rounded-2xl border border-border bg-card p-5 md:p-6 hover:border-accent/40 hover:shadow-md transition-all duration-300"
+            className="group relative rounded-2xl border border-border bg-card p-5 md:p-6 hover:border-accent/40 hover:shadow-md transition-all duration-300 h-full"
           >
             <div className="text-2xl mb-3">{it.icon}</div>
             <h3 className="font-display text-lg leading-snug">{it.title}</h3>
             <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{it.desc}</p>
             <div className="absolute bottom-0 left-5 right-5 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
           </div>
+          </Reveal>
         ))}
       </div>
     </Section>
@@ -344,15 +355,18 @@ const SHIFT_ITEMS = [
 ];
 
 function Shift() {
+  const [activeIdx, setActiveIdx] = useState(0);
+  const activeItem = SHIFT_ITEMS[activeIdx];
+
   return (
-    <section id="shift" className="relative py-28 md:py-36 bg-secondary/40 overflow-hidden">
+    <section id="shift" className="relative py-12 md:py-16 bg-secondary/40 overflow-hidden">
       <div aria-hidden className="absolute -right-32 top-1/2 -translate-y-1/2 opacity-[0.05] pointer-events-none">
         <Yantra className="w-[600px]" />
       </div>
 
       <div className="container-px mx-auto max-w-7xl">
-        <div className="grid lg:grid-cols-12 gap-10 mb-14 items-end">
-          <div className="lg:col-span-6">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center mb-14">
+          <Reveal delay={0.1} className="lg:col-span-6">
             <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
               <span className="inline-block h-px w-8 align-middle bg-accent mr-3" />The Shift
             </p>
@@ -360,60 +374,87 @@ function Shift() {
               From teaching concepts to{" "}
               <em className="not-italic" style={{ color: "var(--brand-orange)" }}>building competence.</em>
             </h2>
-          </div>
-          <div className="lg:col-span-6">
+          </Reveal>
+          <Reveal delay={0.2} className="lg:col-span-6">
             <p className="text-muted-foreground leading-relaxed text-lg">
-              Kriyasetu reframes the classroom as a journey. Every concept becomes
+              Kriya Setu reframes the classroom as a journey. Every concept becomes
               an experience — visualised, applied, and reflected upon — until it
               settles as real, owned understanding.
             </p>
-          </div>
+          </Reveal>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {SHIFT_ITEMS.map(({ icon, category, before, after, stat }) => (
-            <ShiftCard key={category} icon={icon} category={category} before={before} after={after} stat={stat} />
-          ))}
-        </div>
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-14">
+           {/* Left side: Tab Menu */}
+           <div className="lg:col-span-5 flex flex-col gap-3">
+             {SHIFT_ITEMS.map((item, idx) => (
+               <Reveal key={item.category} delay={0.1 * idx}>
+                 <button
+                   onClick={() => setActiveIdx(idx)}
+                   className={`w-full flex items-center gap-4 px-5 py-4 md:px-6 md:py-5 rounded-2xl text-left transition-all duration-300 ${
+                     idx === activeIdx 
+                       ? "bg-[color:var(--brand-orange)]/10 border border-[color:var(--brand-orange)]/20 shadow-sm" 
+                       : "bg-card border border-border hover:border-accent/40 hover:shadow-sm"
+                   }`}
+                 >
+                   <span className={`text-2xl transition-all duration-300 ${idx === activeIdx ? "grayscale-0 opacity-100 scale-110" : "grayscale opacity-50"}`}>
+                     {item.icon}
+                   </span>
+                   <div>
+                     <div className={`text-[10px] uppercase tracking-[0.2em] mb-1 transition-colors duration-300 ${idx === activeIdx ? "text-[color:var(--brand-orange)]" : "text-muted-foreground/50"}`}>
+                       {item.category}
+                     </div>
+                     <div className={`font-medium md:text-lg transition-colors duration-300 ${idx === activeIdx ? "text-foreground" : "text-muted-foreground"}`}>
+                       {idx === activeIdx ? item.after : item.before}
+                     </div>
+                   </div>
+                   
+                   {/* Active Indicator Arrow */}
+                   <div className={`ml-auto text-[color:var(--brand-orange)] transition-all duration-300 ${idx === activeIdx ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"}`}>
+                     →
+                   </div>
+                 </button>
+               </Reveal>
+             ))}
+           </div>
 
-        <div className="mt-6 flex items-center gap-6 text-xs uppercase tracking-[0.2em]">
-          <span className="flex items-center gap-2 text-muted-foreground">
-            <span className="h-3 w-3 rounded-sm border border-border bg-background" />
-            Before
-          </span>
-          <span className="text-muted-foreground/60">→</span>
-          <span className="flex items-center gap-2" style={{ color: "var(--brand-orange)" }}>
-            <span className="h-3 w-3 rounded-sm border border-[color:var(--brand-orange)]/40 bg-[color:var(--brand-orange)]/10" />
-            With Kriyasetu
-          </span>
+           {/* Right side: Dynamic Display */}
+           <Reveal delay={0.3} className="lg:col-span-7 flex flex-col justify-center">
+             <div className="relative rounded-3xl border border-border bg-card p-8 md:p-14 overflow-hidden min-h-[350px] md:min-h-[400px] flex flex-col justify-center shadow-lg">
+               <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[color:var(--brand-orange)]/5 to-transparent pointer-events-none transition-opacity duration-700" />
+               
+               <div className="relative z-10 flex flex-col">
+                 {/* Before */}
+                 <div className="mb-6 md:mb-8 transform transition-all duration-500">
+                   <div className="text-[10px] uppercase tracking-widest text-muted-foreground/50 mb-3">The Reality</div>
+                   <div className="text-xl md:text-3xl text-muted-foreground/40 line-through decoration-muted-foreground/20 font-medium">
+                     {activeItem.before}
+                   </div>
+                 </div>
+                 
+                 {/* Arrow down */}
+                 <div className="text-[color:var(--brand-orange)]/40 text-2xl md:text-3xl mb-6 md:mb-8 ml-2">
+                   ↓
+                 </div>
+
+                 {/* After */}
+                 <div className="transform transition-all duration-500">
+                   <div className="text-[10px] uppercase tracking-widest text-[color:var(--brand-orange)] mb-3">With Kriya Setu</div>
+                   <div className="text-2xl md:text-5xl font-display leading-[1.1] text-foreground" style={{ color: "var(--brand-orange)" }}>
+                     {activeItem.after}
+                   </div>
+                 </div>
+               </div>
+               
+               {/* Large watermark stat */}
+               <div className="absolute bottom-4 right-6 md:right-8 text-7xl md:text-[120px] font-display font-bold leading-none pointer-events-none transition-all duration-700" style={{ color: "var(--brand-orange)", opacity: 0.04 }}>
+                 {activeItem.stat}
+               </div>
+             </div>
+           </Reveal>
         </div>
       </div>
     </section>
-  );
-}
-
-function ShiftCard({
-  icon, category, before, after, stat,
-}: {
-  icon: string; category: string; before: string; after: string; stat: string;
-}) {
-  return (
-    <div className="rounded-2xl border border-border bg-card overflow-hidden group hover:border-accent/40 hover:shadow-md transition-all duration-300">
-      <div className="px-5 pt-5 pb-3 flex items-center gap-2.5">
-        <span className="text-xl">{icon}</span>
-        <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{category}</span>
-        <span className="ml-auto text-sm font-display" style={{ color: "var(--brand-orange)" }}>{stat}</span>
-      </div>
-      <div className="mx-4 mb-2 px-4 py-3 rounded-xl border border-border bg-secondary/40">
-        <div className="text-[10px] uppercase tracking-widest text-muted-foreground mb-1">Before</div>
-        <p className="text-muted-foreground text-sm line-through decoration-muted-foreground/30">{before}</p>
-      </div>
-      <div className="flex justify-center py-1 text-[color:var(--brand-orange)]/60 text-lg group-hover:text-[color:var(--brand-orange)] transition-colors">↓</div>
-      <div className="mx-4 mb-5 px-4 py-3 rounded-xl border border-[color:var(--brand-orange)]/25 bg-[color:var(--brand-orange)]/[0.06]">
-        <div className="text-[10px] uppercase tracking-widest text-[color:var(--brand-orange)]/80 mb-1">With Kriyasetu</div>
-        <p className="text-foreground text-sm font-medium">{after}</p>
-      </div>
-    </div>
   );
 }
 
@@ -422,7 +463,7 @@ function ShiftCard({
 function How() {
   return (
     <Section id="how" eyebrow="The framework" title={<>Six steps from <em className="text-primary not-italic">concept</em> to competence.</>}
-      lead="Scroll. The framework reveals itself the same way a Kriyasetu lesson does — one node at a time, each building on the last.">
+      lead="Scroll. The framework reveals itself the same way a Kriya Setu lesson does — one node at a time, each building on the last.">
       <FrameworkScroll />
     </Section>
   );
@@ -442,21 +483,25 @@ function WhyInstitutions() {
     ["∞", "Future Ready", "Thinking, doing, and adapting — not just remembering."],
   ];
   return (
-    <section id="why" className="py-28 md:py-36 bg-secondary/50">
+    <section id="why" className="py-12 md:py-16 bg-secondary/50">
       <div className="container-px mx-auto max-w-7xl">
+        <Reveal delay={0.1}>
         <div className="max-w-2xl">
-          <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground"><span className="inline-block h-px w-8 align-middle bg-primary mr-3" />Why institutions choose Kriyasetu</p>
+          <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground"><span className="inline-block h-px w-8 align-middle bg-primary mr-3" />Why institutions choose Kriya Setu</p>
           <h2 className="mt-5 font-display text-4xl md:text-5xl leading-[1.05]">
             Built for the long arc of <em className="text-primary not-italic">educational impact.</em>
           </h2>
         </div>
+        </Reveal>
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-px border border-border bg-border rounded-2xl overflow-hidden">
-          {stats.map(([g, t, d]) => (
-            <div key={t} className="bg-background p-8">
+          {stats.map(([g, t, d], idx) => (
+            <Reveal key={t} delay={0.1 * idx} className="h-full">
+            <div className="bg-background p-8 h-full">
               <div className="text-3xl text-accent font-display">{g}</div>
               <h3 className="mt-5 font-display text-xl">{t}</h3>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{d}</p>
             </div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -479,7 +524,7 @@ function Vision() {
           It should create <span className="text-accent">competence,</span> confidence, and curiosity.
         </p>
         <p className="mt-8 text-muted-foreground max-w-xl mx-auto leading-relaxed">
-          Kriyasetu exists to bridge the gap between knowledge and real understanding —
+          Kriya Setu exists to bridge the gap between knowledge and real understanding —
           where Indian wisdom of practice meets the precision of modern systems.
         </p>
         <div className="mt-10 inline-flex items-center gap-3 text-sm text-muted-foreground">
@@ -495,7 +540,7 @@ function Vision() {
 /* ----------------------------------- CTA -------------------------------- */
 function CTA() {
   return (
-    <section id="cta" className="py-24 md:py-28">
+    <section id="cta" className="py-16 md:py-20">
       <div className="container-px mx-auto max-w-7xl">
         <div className="relative overflow-hidden rounded-3xl bg-[color:var(--brand-ink)] text-background p-10 md:p-16 grid md:grid-cols-12 gap-10 items-center">
           <div aria-hidden className="absolute -right-32 -top-32 w-[520px] opacity-70">
@@ -516,7 +561,7 @@ function CTA() {
               Schedule a Conversation <span>→</span>
             </a>
             <a href="mailto:hello@kriyasetu.com" className="inline-flex items-center justify-between gap-3 rounded-full border border-white/15 px-6 py-4 text-sm font-medium hover:border-white/40 transition-colors">
-              Bring Kriyasetu to Your Institution <span>→</span>
+              Bring Kriya Setu to Your Institution <span>→</span>
             </a>
             <p className="text-xs text-background/50 mt-2">Typically respond within 24 hours · India & GCC</p>
           </div>
@@ -579,8 +624,9 @@ function Section({
   id: string; eyebrow: string; title: React.ReactNode; lead?: string; children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="py-28 md:py-36">
+    <section id={id} className="py-12 md:py-16">
       <div className="container-px mx-auto max-w-7xl">
+        <Reveal delay={0.1}>
         <div className="max-w-2xl mb-14">
           <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
             <span className="inline-block h-px w-8 align-middle bg-accent mr-3" />{eyebrow}
@@ -588,6 +634,7 @@ function Section({
           <h2 className="mt-5 font-display text-4xl md:text-5xl leading-[1.05] tracking-tight">{title}</h2>
           {lead && <p className="mt-5 text-muted-foreground text-lg leading-relaxed">{lead}</p>}
         </div>
+        </Reveal>
         {children}
       </div>
     </section>
@@ -597,8 +644,9 @@ function Section({
 /* ------------------------------- SOLUTION -------------------------------- */
 function Solution() {
   return (
-    <section id="solution" className="relative py-20 md:py-28 overflow-hidden">
+    <section id="solution" className="relative py-12 md:py-16 overflow-hidden">
       <div className="container-px mx-auto max-w-7xl">
+        <Reveal delay={0.1}>
         <div className="max-w-3xl">
           <p className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-muted-foreground">
             <span className="h-px w-8 bg-accent flex-shrink-0" />
@@ -608,30 +656,35 @@ function Solution() {
             One classroom. <em className="not-italic" style={{ color: "var(--brand-orange)" }}>Every student in flow.</em>
           </h2>
           <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
-            KriyaSetu equips the teacher with a curriculum-aligned experiential canvas — concepts come alive on the board,
+            Kriya Setu equips the teacher with a curriculum-aligned experiential canvas — concepts come alive on the board,
             every student follows along on their device, and learning shifts from listening to doing.
           </p>
         </div>
+        </Reveal>
 
+        <Reveal delay={0.2}>
         <div className="relative mt-12 rounded-3xl overflow-hidden border border-border bg-card" style={{ boxShadow: "var(--shadow-elev)" }}>
           <img
-            src={howKriyasetuWorks.url}
-            alt="How KriyaSetu works — interactive simulations, NCERT-aligned content, real-world context, video explainers, and an empowered teacher in a real classroom"
+            src={howKriyasetuWorks}
+            alt="How Kriya Setu works — interactive simulations, NCERT-aligned content, real-world context, video explainers, and an empowered teacher in a real classroom"
             className="w-full h-auto block"
             loading="lazy"
           />
         </div>
+        </Reveal>
 
         <div className="mt-10 grid sm:grid-cols-3 gap-4">
           {[
             { k: "For teachers", v: "Plan less. Inspire more." },
             { k: "For students", v: "Feel it. Then remember it." },
             { k: "For institutions", v: "Outcomes you can measure." },
-          ].map((c) => (
-            <div key={c.k} className="rounded-2xl border border-border bg-card/60 backdrop-blur-sm px-5 py-5">
+          ].map((c, idx) => (
+            <Reveal key={c.k} delay={0.1 * idx}>
+            <div className="rounded-2xl border border-border bg-card/60 backdrop-blur-sm px-5 py-5 h-full">
               <div className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">{c.k}</div>
-              <div className="mt-2 font-display text-lg">{c.v}</div>
+              <div className="mt-2 text-base font-medium">{c.v}</div>
             </div>
+            </Reveal>
           ))}
         </div>
 
@@ -641,7 +694,7 @@ function Solution() {
             className="inline-flex items-center gap-2 rounded-full px-7 py-4 text-sm font-medium hover:gap-3 transition-all"
             style={{ background: "var(--brand-orange)", color: "#fff" }}
           >
-            Bring KriyaSetu to your classroom <span>→</span>
+            Bring Kriya Setu to your classroom <span>→</span>
           </a>
           <a
             href="#how"
@@ -654,5 +707,3 @@ function Solution() {
     </section>
   );
 }
-
-

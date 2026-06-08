@@ -7,7 +7,7 @@ export function Footer() {
         <div className="md:col-span-5">
           <div className="flex items-center gap-2.5">
             <Mark />
-            <span className="font-display text-lg">Kriyasetu</span>
+            <span className="font-display text-lg">Kriya Setu</span>
           </div>
           <p className="mt-4 text-sm text-muted-foreground max-w-sm leading-relaxed">
             Bridging knowledge and real competence through experiential learning,
@@ -24,7 +24,7 @@ export function Footer() {
       </div>
       <div className="hairline">
         <div className="container-px mx-auto max-w-7xl py-6 flex flex-col md:flex-row justify-between gap-2 text-xs text-muted-foreground">
-          <span>© {new Date().getFullYear()} Kriyasetu Learning Systems</span>
+          <span>© {new Date().getFullYear()} KRIYASETU LLP</span>
           <span>Designed for institutions building future-ready learners.</span>
         </div>
       </div>

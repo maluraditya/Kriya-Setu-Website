@@ -31,23 +31,56 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Kriyasetu — Bridging Knowledge and Real Competence" },
+      { title: "Kriya Setu — Bridging Knowledge and Real Competence" },
       { name: "description", content: "AI-powered experiential learning platform helping institutions move from memorisation to mastery." },
-      { name: "author", content: "Kriyasetu" },
-      { property: "og:title", content: "Kriyasetu — Bridging Knowledge and Real Competence" },
-      { property: "og:description", content: "AI-powered experiential learning platform helping institutions move from memorisation to mastery." },
+      { name: "author", content: "KRIYASETU LLP" },
+      { name: "keywords", content: "Kriya Setu, Experiential Learning, AI Education, Conceptual Clarity, EdTech, India Education, NEP 2020, School Curriculum" },
+      
+      // Open Graph (WhatsApp, LinkedIn, Facebook)
+      { property: "og:site_name", content: "Kriya Setu" },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Kriyasetu — Bridging Knowledge and Real Competence" },
+      { property: "og:url", content: "https://kriyasetu.com" },
+      { property: "og:title", content: "Kriya Setu — Bridging Knowledge and Real Competence" },
+      { property: "og:description", content: "AI-powered experiential learning platform helping institutions move from memorisation to mastery." },
+      { property: "og:image", content: "https://kriyasetu.com/logo.png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "Kriya Setu Logo" },
+      
+      // Twitter
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Kriya Setu — Bridging Knowledge and Real Competence" },
       { name: "twitter:description", content: "AI-powered experiential learning platform helping institutions move from memorisation to mastery." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d1d7ffd4-a64c-4987-8207-1dca1510f5f8/id-preview-51109f75--a5d57baa-1b7b-4606-9906-5ad343c2c90c.lovable.app-1780548470158.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d1d7ffd4-a64c-4987-8207-1dca1510f5f8/id-preview-51109f75--a5d57baa-1b7b-4606-9906-5ad343c2c90c.lovable.app-1780548470158.png" },
+      { name: "twitter:image", content: "https://kriyasetu.com/logo.png" },
     ],
     links: [
       {
+        rel: "canonical",
+        href: "https://kriyasetu.com",
+      },
+      {
         rel: "stylesheet",
         href: appCss,
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "EducationalOrganization",
+          "name": "KRIYASETU LLP",
+          "alternateName": "Kriya Setu",
+          "url": "https://kriyasetu.com",
+          "logo": "https://kriyasetu.com/logo.png",
+          "email": "hello@kriyasetu.com",
+          "description": "AI-powered experiential learning platform helping institutions move from memorisation to mastery.",
+          "foundingLocation": "India",
+          "sameAs": [
+            "https://www.linkedin.com/company/kriyasetu",
+            "https://twitter.com/kriyasetu"
+          ]
+        }),
       },
     ],
   }),

@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-display: "Fraunces", Georgia, serif;
+  --font-display: "Inter", system-ui, sans-serif;
   --font-sans: "Inter", system-ui, sans-serif;
 
   --radius-sm: calc(var(--radius) - 4px);
@@ -87,16 +87,11 @@
     font-feature-settings: "ss01","cv11";
     -webkit-font-smoothing: antialiased;
   }
-  h1,h2,h3,h4 { font-family: var(--font-display); letter-spacing: -0.02em; font-weight: 400; }
+  h1,h2,h3,h4 { font-family: var(--font-display); letter-spacing: 0; font-weight: 700; }
 }
 
 @layer utilities {
   .container-px { padding-inline: clamp(1.25rem, 4vw, 3rem); }
-  .reveal { opacity: 0; transform: translateY(24px); animation: reveal .9s cubic-bezier(.2,.7,.2,1) forwards; }
-  .reveal-delay-1 { animation-delay: .1s; }
-  .reveal-delay-2 { animation-delay: .25s; }
-  .reveal-delay-3 { animation-delay: .4s; }
-  @keyframes reveal { to { opacity: 1; transform: none; } }
 
   .float-slow { animation: float 9s ease-in-out infinite; }
   @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
