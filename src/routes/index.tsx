@@ -218,20 +218,44 @@ function Hero() {
           </a>
         </div>
 
-
         {/* Social proof */}
         <p className="reveal reveal-delay-3 mt-6 text-xs text-muted-foreground/70">
           Trusted by schools, PU colleges & NEET/JEE institutions across India &amp; GCC
         </p>
+      </div>
 
-        {/* Journey steps — visual cards */}
-        <div className="reveal reveal-delay-3 mt-16 md:mt-20 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+      {/* Hero preview image */}
+      <div className="lg:col-span-5 relative reveal reveal-delay-2">
+        <div className="relative rounded-3xl overflow-hidden border border-border bg-card shadow-2xl rotate-[-1.5deg] hover:rotate-0 transition-transform duration-500">
+          <img
+            src={howKriyasetuWorks.url}
+            alt="KriyaSetu in a classroom — interactive simulation, curriculum-aligned content, engaged learners"
+            className="w-full h-auto block"
+            loading="eager"
+          />
+          <div className="absolute top-3 left-3 flex items-center gap-2 rounded-full bg-background/95 backdrop-blur px-3 py-1.5 text-[10px] uppercase tracking-widest border border-border">
+            <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--brand-orange)] animate-pulse" />
+            Live in classrooms
+          </div>
+        </div>
+        {/* floating mini badge */}
+        <div className="hidden md:flex absolute -bottom-4 -left-4 items-center gap-2 bg-background border border-border rounded-2xl px-4 py-3 shadow-lg animate-[float_6s_ease-in-out_infinite]">
+          <span className="text-xl">✨</span>
+          <div>
+            <div className="text-xs font-display">NCERT aligned</div>
+            <div className="text-[10px] text-muted-foreground">Curriculum first</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Journey steps — full-width below */}
+      <div className="lg:col-span-12 container-px mx-auto max-w-7xl w-full">
+        <div className="reveal reveal-delay-3 mt-10 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
           {steps.map(({ num, label, desc, symbol }, i) => (
             <div
               key={label}
               className="relative group rounded-2xl border border-border bg-card/60 backdrop-blur-sm px-5 py-6 md:px-6 md:py-7 hover:border-accent/40 hover:bg-card transition-all duration-300 cursor-default"
             >
-              {/* Connector arrow on desktop */}
               {i < 3 && (
                 <div className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-10 items-center justify-center w-8 h-8 rounded-full bg-background border border-border text-muted-foreground/40 text-xs">
                   →
@@ -250,6 +274,8 @@ function Hero() {
           ))}
         </div>
       </div>
+      </div>
+
 
       {/* Scroll cue */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-muted-foreground/40 animate-bounce pointer-events-none">
