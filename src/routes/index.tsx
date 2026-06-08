@@ -137,15 +137,25 @@ function Hero() {
               "radial-gradient(60% 50% at 70% 30%, color-mix(in oklab, var(--accent) 14%, transparent), transparent 60%), radial-gradient(50% 60% at 20% 70%, color-mix(in oklab, var(--primary) 12%, transparent), transparent 60%)",
           }}
         />
+        {/* Moving gradient orbs */}
+        <div
+          className="absolute -top-32 -left-32 w-[520px] h-[520px] rounded-full blur-3xl opacity-50 animate-[float-slow_14s_ease-in-out_infinite]"
+          style={{ background: "radial-gradient(circle, color-mix(in oklab, var(--brand-orange) 50%, transparent), transparent 70%)" }}
+        />
+        <div
+          className="absolute -bottom-32 -right-32 w-[600px] h-[600px] rounded-full blur-3xl opacity-40 animate-[float-slow_18s_ease-in-out_infinite_reverse]"
+          style={{ background: "radial-gradient(circle, color-mix(in oklab, var(--brand-blue) 45%, transparent), transparent 70%)" }}
+        />
         {/* Floating educational artifacts */}
         <HeroFloaters />
         {/* Yantra — softer, float */}
-        <Yantra className="absolute -right-48 -top-24 w-[900px] opacity-25 float-slow pointer-events-none" />
+        <Yantra className="absolute -right-48 -top-24 w-[900px] opacity-30 float-slow pointer-events-none" />
         {/* Vignette fade to bg at bottom */}
         <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-background to-transparent pointer-events-none" />
         {/* Subtle top fade */}
         <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background/60 to-transparent pointer-events-none" />
       </div>
+
 
       <div className="container-px mx-auto max-w-7xl flex-1 flex flex-col justify-center">
         {/* Eyebrow */}
