@@ -6,8 +6,9 @@ import { AtomBuilder } from "@/components/site/AtomBuilder";
 import { HeroFloaters } from "@/components/site/HeroFloaters";
 import { TeacherScroll } from "@/components/site/TeacherScroll";
 import { FrameworkScroll } from "@/components/site/FrameworkScroll";
-import transformationImg from "@/assets/transformation.jpg";
-import classroomSolution from "@/assets/classroom-solution.png.asset.json";
+import { BookDemoProvider } from "@/components/site/BookDemoDialog";
+import howKriyasetuWorks from "@/assets/how-kriyasetu-works.png.asset.json";
+
 
 
 export const Route = createFileRoute("/")({
