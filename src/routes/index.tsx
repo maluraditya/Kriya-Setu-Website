@@ -22,14 +22,13 @@ export const Route = createFileRoute("/")({
         content:
           "Kriya Setu helps institutions transform teaching and learning through experiential systems, conceptual clarity, and AI-enabled education.",
       },
-      { property: "og:url", content: "https://kriya-setu-website.vercel.app" },
       { property: "og:title", content: "Kriya Setu — Experiential Learning Transformation" },
       { property: "og:description", content: "An AI-powered experiential learning platform for institutions, teachers and students." },
-      { property: "og:image", content: "https://kriya-setu-website.vercel.app/logo.png" },
+      { property: "og:image", content: "/logo.png" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Kriya Setu — Experiential Learning Transformation" },
       { name: "twitter:description", content: "An AI-powered experiential learning platform for institutions, teachers and students." },
-      { name: "twitter:image", content: "https://kriya-setu-website.vercel.app/logo.png" },
+      { name: "twitter:image", content: "/logo.png" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },

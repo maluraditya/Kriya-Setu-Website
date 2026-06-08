@@ -39,10 +39,9 @@ export const Route = createRootRoute({
       // Open Graph (WhatsApp, LinkedIn, Facebook)
       { property: "og:site_name", content: "Kriya Setu" },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://kriya-setu-website.vercel.app" },
       { property: "og:title", content: "Kriya Setu — Bridging Knowledge and Real Competence" },
       { property: "og:description", content: "AI-powered experiential learning platform helping institutions move from memorisation to mastery." },
-      { property: "og:image", content: "https://kriya-setu-website.vercel.app/logo.png" },
+      { property: "og:image", content: "/logo.png" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
       { property: "og:image:alt", content: "Kriya Setu Logo" },
@@ -51,7 +50,7 @@ export const Route = createRootRoute({
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Kriya Setu — Bridging Knowledge and Real Competence" },
       { name: "twitter:description", content: "AI-powered experiential learning platform helping institutions move from memorisation to mastery." },
-      { name: "twitter:image", content: "https://kriya-setu-website.vercel.app/logo.png" },
+      { name: "twitter:image", content: "/logo.png" },
     ],
     links: [
       {
@@ -65,7 +64,7 @@ export const Route = createRootRoute({
       },
       {
         rel: "canonical",
-        href: "https://kriya-setu-website.vercel.app",
+        href: "/",
       },
       {
         rel: "stylesheet",
@@ -80,8 +79,8 @@ export const Route = createRootRoute({
           "@type": "EducationalOrganization",
           "name": "KRIYASETU LLP",
           "alternateName": "Kriya Setu",
-          "url": "https://kriya-setu-website.vercel.app",
-          "logo": "https://kriya-setu-website.vercel.app/logo.png",
+          "url": "/",
+          "logo": "/logo.png",
           "email": "hello@kriyasetu.com",
           "description": "AI-powered experiential learning platform helping institutions move from memorisation to mastery.",
           "foundingLocation": "India",
