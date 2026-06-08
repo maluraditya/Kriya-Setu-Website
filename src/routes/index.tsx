@@ -37,43 +37,45 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div id="top" className="min-h-screen bg-background text-foreground">
-      <Nav />
-      <Hero />
-      <Marquee />
-      <Problem />
-      <Solution />
-      <TeacherScroll />
+    <BookDemoProvider>
+      <div id="top" className="min-h-screen bg-background text-foreground">
+        <Nav />
+        <Hero />
+        <Marquee />
+        <Problem />
+        <Shift />
+        <Solution />
+        <TeacherScroll />
 
-      <MidCTA
-        heading="Ready to see the shift in your classrooms?"
-        sub="Join institutions already moving from memorisation to mastery."
-        primary={{ label: "Book a Demo", href: "#cta" }}
-        secondary={{ label: "See How It Works", href: "#how" }}
-      />
-      <Shift />
-      <Experience />
-      <MidCTA
-        heading="Bring this into your institution."
-        sub="Every subject. Every grade. The same depth of experience."
-        primary={{ label: "Partner With Us", href: "#cta" }}
-        secondary={{ label: "Explore the Framework", href: "#how" }}
-        accent
-      />
-      <How />
-      <MidCTA
-        heading="Your students deserve to own what they learn."
-        sub="Let's build a learning system designed around your institution."
-        primary={{ label: "Schedule a Conversation", href: "#cta" }}
-      />
-      <AI />
-      <WhyInstitutions />
-      <Vision />
-      <CTA />
-      <Footer />
-    </div>
+        <MidCTA
+          heading="Ready to see the shift in your classrooms?"
+          sub="Join institutions already moving from memorisation to mastery."
+          primary={{ label: "Book a Demo", href: "#cta" }}
+          secondary={{ label: "See How It Works", href: "#how" }}
+        />
+        <Experience />
+        <MidCTA
+          heading="Bring this into your institution."
+          sub="Every subject. Every grade. The same depth of experience."
+          primary={{ label: "Partner With Us", href: "#cta" }}
+          secondary={{ label: "Explore the Framework", href: "#how" }}
+          accent
+        />
+        <How />
+        <MidCTA
+          heading="Your students deserve to own what they learn."
+          sub="Let's build a learning system designed around your institution."
+          primary={{ label: "Schedule a Conversation", href: "#cta" }}
+        />
+        <WhyInstitutions />
+        <Vision />
+        <CTA />
+        <Footer />
+      </div>
+    </BookDemoProvider>
   );
 }
+
 
 /* ------------------------------- EXPERIENCE ------------------------------ */
 function Experience() {
