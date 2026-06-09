@@ -59,12 +59,34 @@ export function BookDemoProvider({ children }: { children: ReactNode }) {
       return;
     }
     setLoading(true);
-    // Simulated submission (no backend wired yet)
-    await new Promise((r) => setTimeout(r, 600));
-    setLoading(false);
-    toast.success("Thanks! Our team will reach out within 24 hours.");
-    setOpen(false);
-    (e.target as HTMLFormElement).reset();
+    const SCRIPT_URL = import.meta.env.VITE_APPS_SCRIPT_URL;
+    
+    if (!SCRIPT_URL) {
+      toast.error("Form backend not configured yet. Provide the Web App URL.");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      // We use text/plain to bypass strict CORS preflight, which GAS struggles with natively.
+      await fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+        body: JSON.stringify(parsed.data),
+      });
+      
+      toast.success("Thanks! Our team will reach out within 24 hours.");
+      setOpen(false);
+      (e.target as HTMLFormElement).reset();
+    } catch (err) {
+      console.error(err);
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (

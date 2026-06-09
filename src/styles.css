@@ -134,4 +134,8 @@
     animation: svg-dot-in 0.4s cubic-bezier(.34,1.56,.64,1) forwards paused;
   }
   @keyframes svg-dot-in { to { transform: scale(1); } }
+
+  /* Hide scrollbar on carousel tracks */
+  .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .hide-scrollbar::-webkit-scrollbar { display: none; }
 }

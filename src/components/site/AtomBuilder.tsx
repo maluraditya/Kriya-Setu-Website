@@ -70,10 +70,22 @@ export function AtomBuilder() {
   const reset = () => { setP(1); setN(0); setE(1); };
 
   return (
-    <div className="grid lg:grid-cols-5 gap-8 items-stretch">
+    <div className="flex flex-col lg:grid lg:grid-cols-5 gap-6 lg:gap-8 items-stretch">
+      {/* ── Mobile Header ─────────────────────── */}
+      <div className="lg:hidden flex flex-col gap-3 mb-2">
+        <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">Try it · Live</p>
+        <h3 className="font-display text-2xl leading-snug">
+          Don't memorise the periodic table. <em className="not-italic text-accent">Build it.</em>
+        </h3>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          Add a proton — a new element appears. Add an electron — the atom calms.
+          One missing? It becomes an ion. This is how chemistry was meant to be felt.
+        </p>
+      </div>
+
       {/* ── Atom canvas ─────────────────────────── */}
       <div
-        className="lg:col-span-3 relative rounded-2xl border border-border overflow-hidden min-h-[480px]"
+        className="lg:col-span-3 relative rounded-2xl border border-border overflow-hidden min-h-[320px] md:min-h-[400px] lg:min-h-[480px] sticky top-20 z-20 bg-background"
         style={{
           background:
             "radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--brand-blue) 8%, var(--background)), var(--background))",
@@ -142,8 +154,8 @@ export function AtomBuilder() {
       </div>
 
       {/* ── Controls ────────────────────────────── */}
-      <div className="lg:col-span-2 flex flex-col gap-5">
-        <div>
+      <div className="lg:col-span-2 flex flex-col gap-3 lg:gap-5 z-10 relative">
+        <div className="hidden lg:block">
           <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">Try it · Live</p>
           <h3 className="mt-3 font-display text-2xl leading-snug">
             Don't memorise the periodic table. <em className="not-italic text-accent">Build it.</em>

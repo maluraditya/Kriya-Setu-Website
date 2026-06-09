@@ -6,11 +6,12 @@ import { AtomBuilder } from "@/components/site/AtomBuilder";
 import { HeroFloaters } from "@/components/site/HeroFloaters";
 import { TeacherScroll } from "@/components/site/TeacherScroll";
 import { FrameworkScroll } from "@/components/site/FrameworkScroll";
-import { BookDemoProvider } from "@/components/site/BookDemoDialog";
+import { ShiftCarousel } from "@/components/site/ShiftCarousel";
+import { BookDemoProvider, useBookDemo } from "@/components/site/BookDemoDialog";
 import howKriyasetuWorks from "@/assets/how-kriyasetu-works-local.png";
 import experientialHero from "@/assets/experiential_learning_hero.png";
 import { Reveal } from "@/components/site/Reveal";
-import { useState } from "react";
+
 
 
 export const Route = createFileRoute("/")({
@@ -95,7 +96,7 @@ function Experience() {
             "radial-gradient(60% 50% at 65% 30%, color-mix(in oklab, var(--accent) 10%, transparent), transparent 70%)",
         }}
       />
-      <div className="container-px mx-auto max-w-7xl">
+      <div className="container-px mx-auto max-w-[1440px] 2xl:max-w-[1600px]">
         <Reveal delay={0.1}>
         <div className="max-w-2xl mb-12">
           <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
@@ -167,16 +168,18 @@ function Hero() {
       </div>
 
 
-      <div className="container-px mx-auto max-w-7xl flex-1 grid lg:grid-cols-12 gap-10 xl:gap-14 items-center">
-        <div className="lg:col-span-6 flex flex-col justify-center">
+      <div className="container-px mx-auto max-w-[1440px] 2xl:max-w-[1600px] flex-1 flex flex-col lg:grid lg:grid-cols-12 gap-6 lg:gap-10 xl:gap-14 lg:items-center">
+
+        {/* ── Text column (headline + desktop sub + desktop CTAs) ── */}
+        <div className="order-1 lg:col-span-7 flex flex-col justify-center">
 
         {/* Headline */}
         <Reveal delay={0.1}>
         <h1
           aria-label="Learning should be experienced not memorised."
-          className="mt-6 font-display text-[clamp(2rem,5.5vw,4.05rem)] lg:text-[clamp(3.15rem,3.7vw,4.15rem)] leading-[1.08] max-w-[46rem]"
+          className="mt-6 font-display text-[clamp(2rem,5.5vw,4.05rem)] lg:text-[clamp(3.15rem,3.7vw,4.15rem)] leading-[1.25] lg:leading-[1.08] max-w-[46rem]"
         >
-          <span className="block whitespace-nowrap">Learning should be</span>
+          <span className="block">Learning should be</span>
           <span className="block">
             <span className="relative inline-block">
               <span style={{ color: "var(--brand-blue)" }}>experienced</span>
@@ -219,18 +222,18 @@ function Hero() {
         </h1>
         </Reveal>
 
-        {/* Sub */}
+        {/* Desktop-only full description */}
         <Reveal delay={0.25}>
-        <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
+        <p className="hidden lg:block mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
           Kriya Setu bridges the gap between memorisation and understanding through
           curriculum-aligned experiential learning, helping educators teach with
           clarity and students learn with meaning.
         </p>
         </Reveal>
 
-        {/* CTAs */}
+        {/* Desktop-only CTAs */}
         <Reveal delay={0.4}>
-        <div className="mt-9 flex flex-wrap items-center gap-3">
+        <div className="hidden lg:flex mt-9 flex-wrap items-center gap-3">
           <a
             href="#experience"
             className="group inline-flex items-center gap-2 rounded-full px-7 py-4 text-sm font-medium transition-all hover:gap-3"
@@ -250,8 +253,8 @@ function Hero() {
 
         </div>
 
-      {/* Hero preview */}
-      <Reveal delay={0.25} className="lg:col-span-6 relative">
+      {/* ── Hero image (order-2: right after headline on mobile) ── */}
+      <Reveal delay={0.25} className="order-2 lg:col-span-5 relative">
         <div className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-2xl">
           <img
             src={experientialHero}
@@ -262,43 +265,70 @@ function Hero() {
         </div>
         
         {/* floating mini badge 1 */}
-        <div className="hidden md:flex absolute top-8 -left-6 items-center gap-2 bg-background border border-border rounded-2xl px-4 py-3 shadow-lg animate-[float_6s_ease-in-out_infinite] transform scale-75 lg:scale-100">
-          <span className="text-xl">💡</span>
+        <div className="flex absolute top-2 -left-2 md:top-8 md:-left-6 items-center gap-1.5 md:gap-2 bg-background/90 backdrop-blur-sm border border-border rounded-xl md:rounded-2xl px-2.5 py-1.5 md:px-4 md:py-3 shadow-lg animate-[float_6s_ease-in-out_infinite] scale-[0.65] md:scale-75 lg:scale-100 origin-top-left md:origin-center z-10">
+          <span className="text-lg md:text-xl">💡</span>
           <div>
-            <div className="text-xs font-display">Concept Clarity</div>
-            <div className="text-[10px] text-muted-foreground">Learning that lasts</div>
+            <div className="text-[10px] md:text-xs font-display">Concept Clarity</div>
+            <div className="text-[8px] md:text-[10px] text-muted-foreground leading-tight">Learning that lasts</div>
           </div>
         </div>
         
         {/* floating mini badge 2 */}
-        <div className="hidden md:flex absolute top-16 -right-8 items-center gap-2 bg-background border border-border rounded-2xl px-4 py-3 shadow-lg animate-[float_7s_ease-in-out_infinite_reverse]">
-          <span className="text-xl">🤝</span>
+        <div className="flex absolute top-12 -right-4 md:top-16 md:-right-8 items-center gap-1.5 md:gap-2 bg-background/90 backdrop-blur-sm border border-border rounded-xl md:rounded-2xl px-2.5 py-1.5 md:px-4 md:py-3 shadow-lg animate-[float_7s_ease-in-out_infinite_reverse] scale-[0.65] md:scale-75 lg:scale-100 origin-top-right md:origin-center z-10">
+          <span className="text-lg md:text-xl">🤝</span>
           <div>
-            <div className="text-xs font-display">Empowering Teachers</div>
-            <div className="text-[10px] text-muted-foreground">Teaching with confidence</div>
+            <div className="text-[10px] md:text-xs font-display">Empowering Teachers</div>
+            <div className="text-[8px] md:text-[10px] text-muted-foreground leading-tight">Teaching with confidence</div>
           </div>
         </div>
 
         {/* floating mini badge 3 */}
-        <div className="hidden md:flex absolute bottom-16 -left-8 items-center gap-2 bg-background border border-border rounded-2xl px-4 py-3 shadow-lg animate-[float_8s_ease-in-out_infinite]">
-          <span className="text-xl text-[color:var(--brand-orange)]">⚡</span>
+        <div className="flex absolute bottom-12 -left-4 md:bottom-16 md:-left-8 items-center gap-1.5 md:gap-2 bg-background/90 backdrop-blur-sm border border-border rounded-xl md:rounded-2xl px-2.5 py-1.5 md:px-4 md:py-3 shadow-lg animate-[float_8s_ease-in-out_infinite] scale-[0.65] md:scale-75 lg:scale-100 origin-bottom-left md:origin-center z-10">
+          <span className="text-lg md:text-xl text-[color:var(--brand-orange)]">⚡</span>
           <div>
-            <div className="text-xs font-display">Interactive Learning</div>
-            <div className="text-[10px] text-muted-foreground">Active participation, deeper understanding</div>
+            <div className="text-[10px] md:text-xs font-display">Interactive Learning</div>
+            <div className="text-[8px] md:text-[10px] text-muted-foreground leading-tight">Active participation, deeper understanding</div>
           </div>
         </div>
 
         {/* floating mini badge 4 */}
-        <div className="hidden md:flex absolute bottom-8 -right-4 items-center gap-2 bg-background border border-border rounded-2xl px-4 py-3 shadow-lg animate-[float_6s_ease-in-out_infinite_reverse]">
-          <span className="text-xl text-[color:var(--brand-blue)]">🌍</span>
+        <div className="flex absolute bottom-2 -right-2 md:bottom-8 md:-right-4 items-center gap-1.5 md:gap-2 bg-background/90 backdrop-blur-sm border border-border rounded-xl md:rounded-2xl px-2.5 py-1.5 md:px-4 md:py-3 shadow-lg animate-[float_6s_ease-in-out_infinite_reverse] scale-[0.65] md:scale-75 lg:scale-100 origin-bottom-right md:origin-center z-10">
+          <span className="text-lg md:text-xl text-[color:var(--brand-blue)]">🌍</span>
           <div>
-            <div className="text-xs font-display">Real-World Connection</div>
-            <div className="text-[10px] text-muted-foreground">Applying learning in life</div>
+            <div className="text-[10px] md:text-xs font-display">Real-World Connection</div>
+            <div className="text-[8px] md:text-[10px] text-muted-foreground leading-tight">Applying learning in life</div>
           </div>
         </div>
 
-      {/* Journey steps removed to reduce visual clutter in hero */}
       </Reveal>
+
+      {/* ── Mobile-only: short description + CTAs (order-3) ── */}
+      <div className="order-3 lg:hidden flex flex-col">
+        <Reveal delay={0.3}>
+          <p className="text-base text-muted-foreground leading-relaxed">
+            Experiential, curriculum-aligned learning — helping educators teach with clarity and students learn with meaning.
+          </p>
+        </Reveal>
+        <Reveal delay={0.35}>
+          <div className="mt-6 flex flex-wrap items-center gap-3">
+            <a
+              href="#experience"
+              className="group inline-flex items-center gap-2 rounded-full px-7 py-4 text-sm font-medium transition-all hover:gap-3"
+              style={{ background: "var(--brand-orange)", color: "#fff" }}
+            >
+              Experience it live
+              <span className="transition-transform group-hover:translate-x-0.5">→</span>
+            </a>
+            <a
+              href="#cta"
+              className="inline-flex items-center gap-2 rounded-full border border-foreground/15 px-7 py-4 text-sm font-medium hover:border-foreground/40 transition-colors"
+            >
+              Book a Demo
+            </a>
+          </div>
+        </Reveal>
+      </div>
+
       </div>
 
 
@@ -345,113 +375,36 @@ function Problem() {
 }
 
 /* --------------------------------- SHIFT -------------------------------- */
-const SHIFT_ITEMS = [
-  { icon: "📖", category: "Engagement",   before: "Passive listening",    after: "Experiential learning",     stat: "3×" },
-  { icon: "🧠", category: "Retention",    before: "Rote memorisation",    after: "Conceptual understanding",  stat: "60%" },
-  { icon: "🔗", category: "Consistency",  before: "Isolated teaching",    after: "Structured systems",        stat: "≡" },
-  { icon: "🌍", category: "Application",  before: "Theory only",          after: "Real-world application",    stat: "↗" },
-  { icon: "⚡", category: "Energy",       before: "Lecture-heavy classes", after: "Learning experiences",     stat: "∞" },
-];
-
 function Shift() {
-  const [activeIdx, setActiveIdx] = useState(0);
-  const activeItem = SHIFT_ITEMS[activeIdx];
-
   return (
-    <section id="shift" className="relative py-12 md:py-16 bg-secondary/40 overflow-hidden">
+    <section id="shift" className="relative py-16 md:py-24 bg-secondary/40 overflow-hidden">
       <div aria-hidden className="absolute -right-32 top-1/2 -translate-y-1/2 opacity-[0.05] pointer-events-none">
         <Yantra className="w-[600px]" />
       </div>
 
-      <div className="container-px mx-auto max-w-7xl">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center mb-14">
-          <Reveal delay={0.1} className="lg:col-span-6">
+      {/* Header — uses container padding */}
+      <div className="container-px mx-auto max-w-[1440px] 2xl:max-w-[1600px] mb-10 md:mb-14">
+        <div className="max-w-2xl">
+          <Reveal delay={0.1}>
             <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
               <span className="inline-block h-px w-8 align-middle bg-accent mr-3" />The Shift
             </p>
-            <h2 className="mt-5 font-display text-4xl md:text-5xl leading-[1.05] text-foreground">
+            <h2 className="mt-5 font-display text-3xl md:text-5xl leading-[1.1] text-foreground">
               From teaching concepts to{" "}
               <em className="not-italic" style={{ color: "var(--brand-orange)" }}>building competence.</em>
             </h2>
-          </Reveal>
-          <Reveal delay={0.2} className="lg:col-span-6">
-            <p className="text-muted-foreground leading-relaxed text-lg">
-              Kriya Setu reframes the classroom as a journey. Every concept becomes
-              an experience — visualised, applied, and reflected upon — until it
-              settles as real, owned understanding.
+            <p className="mt-5 text-muted-foreground leading-relaxed text-base md:text-lg">
+              Every dimension of the classroom transforms — swipe to see the shift.
             </p>
           </Reveal>
         </div>
+      </div>
 
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-14">
-           {/* Left side: Tab Menu */}
-           <div className="lg:col-span-5 flex flex-col gap-3">
-             {SHIFT_ITEMS.map((item, idx) => (
-               <Reveal key={item.category} delay={0.1 * idx}>
-                 <button
-                   onClick={() => setActiveIdx(idx)}
-                   className={`w-full flex items-center gap-4 px-5 py-4 md:px-6 md:py-5 rounded-2xl text-left transition-all duration-300 ${
-                     idx === activeIdx 
-                       ? "bg-[color:var(--brand-orange)]/10 border border-[color:var(--brand-orange)]/20 shadow-sm" 
-                       : "bg-card border border-border hover:border-accent/40 hover:shadow-sm"
-                   }`}
-                 >
-                   <span className={`text-2xl transition-all duration-300 ${idx === activeIdx ? "grayscale-0 opacity-100 scale-110" : "grayscale opacity-50"}`}>
-                     {item.icon}
-                   </span>
-                   <div>
-                     <div className={`text-[10px] uppercase tracking-[0.2em] mb-1 transition-colors duration-300 ${idx === activeIdx ? "text-[color:var(--brand-orange)]" : "text-muted-foreground/50"}`}>
-                       {item.category}
-                     </div>
-                     <div className={`font-medium md:text-lg transition-colors duration-300 ${idx === activeIdx ? "text-foreground" : "text-muted-foreground"}`}>
-                       {idx === activeIdx ? item.after : item.before}
-                     </div>
-                   </div>
-                   
-                   {/* Active Indicator Arrow */}
-                   <div className={`ml-auto text-[color:var(--brand-orange)] transition-all duration-300 ${idx === activeIdx ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"}`}>
-                     →
-                   </div>
-                 </button>
-               </Reveal>
-             ))}
-           </div>
-
-           {/* Right side: Dynamic Display */}
-           <Reveal delay={0.3} className="lg:col-span-7 flex flex-col justify-center">
-             <div className="relative rounded-3xl border border-border bg-card p-8 md:p-14 overflow-hidden min-h-[350px] md:min-h-[400px] flex flex-col justify-center shadow-lg">
-               <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[color:var(--brand-orange)]/5 to-transparent pointer-events-none transition-opacity duration-700" />
-               
-               <div className="relative z-10 flex flex-col">
-                 {/* Before */}
-                 <div className="mb-6 md:mb-8 transform transition-all duration-500">
-                   <div className="text-[10px] uppercase tracking-widest text-muted-foreground/50 mb-3">The Reality</div>
-                   <div className="text-xl md:text-3xl text-muted-foreground/40 line-through decoration-muted-foreground/20 font-medium">
-                     {activeItem.before}
-                   </div>
-                 </div>
-                 
-                 {/* Arrow down */}
-                 <div className="text-[color:var(--brand-orange)]/40 text-2xl md:text-3xl mb-6 md:mb-8 ml-2">
-                   ↓
-                 </div>
-
-                 {/* After */}
-                 <div className="transform transition-all duration-500">
-                   <div className="text-[10px] uppercase tracking-widest text-[color:var(--brand-orange)] mb-3">With Kriya Setu</div>
-                   <div className="text-2xl md:text-5xl font-display leading-[1.1] text-foreground" style={{ color: "var(--brand-orange)" }}>
-                     {activeItem.after}
-                   </div>
-                 </div>
-               </div>
-               
-               {/* Large watermark stat */}
-               <div className="absolute bottom-4 right-6 md:right-8 text-7xl md:text-[120px] font-display font-bold leading-none pointer-events-none transition-all duration-700" style={{ color: "var(--brand-orange)", opacity: 0.04 }}>
-                 {activeItem.stat}
-               </div>
-             </div>
-           </Reveal>
-        </div>
+      {/* Carousel — full bleed, handles its own padding */}
+      <div className="mx-auto max-w-[1440px] 2xl:max-w-[1600px]">
+        <Reveal delay={0.2}>
+          <ShiftCarousel />
+        </Reveal>
       </div>
     </section>
   );
@@ -483,7 +436,7 @@ function WhyInstitutions() {
   ];
   return (
     <section id="why" className="py-12 md:py-16 bg-secondary/50">
-      <div className="container-px mx-auto max-w-7xl">
+      <div className="container-px mx-auto max-w-[1440px] 2xl:max-w-[1600px]">
         <Reveal delay={0.1}>
         <div className="max-w-2xl">
           <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground"><span className="inline-block h-px w-8 align-middle bg-primary mr-3" />Why institutions choose Kriya Setu</p>
@@ -538,9 +491,11 @@ function Vision() {
 
 /* ----------------------------------- CTA -------------------------------- */
 function CTA() {
+  const { open } = useBookDemo();
+  
   return (
     <section id="cta" className="py-16 md:py-20">
-      <div className="container-px mx-auto max-w-7xl">
+      <div className="container-px mx-auto max-w-[1440px] 2xl:max-w-[1600px]">
         <div className="relative overflow-hidden rounded-3xl bg-[color:var(--brand-ink)] text-background p-10 md:p-16 grid md:grid-cols-12 gap-10 items-center">
           <div aria-hidden className="absolute -right-32 -top-32 w-[520px] opacity-70">
             <Yantra className="w-full" />
@@ -555,14 +510,14 @@ function CTA() {
               institution — your students, your faculty, your outcomes.
             </p>
           </div>
-          <div className="md:col-span-5 relative flex flex-col gap-3">
-            <a href="mailto:hello@kriyasetu.com" className="inline-flex items-center justify-between gap-3 rounded-full bg-accent text-accent-foreground px-6 py-4 text-sm font-medium hover:opacity-90 transition-opacity">
-              Schedule a Conversation <span>→</span>
-            </a>
-            <a href="mailto:hello@kriyasetu.com" className="inline-flex items-center justify-between gap-3 rounded-full border border-white/15 px-6 py-4 text-sm font-medium hover:border-white/40 transition-colors">
-              Bring Kriya Setu to Your Institution <span>→</span>
-            </a>
-            <p className="text-xs text-background/50 mt-2">Typically respond within 24 hours · India & GCC</p>
+          <div className="md:col-span-5 relative flex flex-col gap-4">
+            <button 
+              onClick={open} 
+              className="inline-flex w-full items-center justify-between gap-4 rounded-full bg-accent text-accent-foreground px-8 py-5 text-sm md:text-base font-medium hover:opacity-90 transition-opacity"
+            >
+              Schedule a Conversation <span className="text-xl leading-none">→</span>
+            </button>
+            <p className="text-xs text-background/50 px-2">Typically respond within 24 hours · India & GCC</p>
           </div>
         </div>
       </div>
@@ -586,7 +541,7 @@ function MidCTA({
 }) {
   return (
     <div className={`${isAccent ? "bg-secondary/60" : ""} py-14 md:py-16`}>
-      <div className="container-px mx-auto max-w-7xl">
+      <div className="container-px mx-auto max-w-[1440px] 2xl:max-w-[1600px]">
         <div className="rounded-2xl border border-border bg-card px-8 py-10 md:px-14 md:py-12 flex flex-col md:flex-row md:items-center gap-8 justify-between">
           <div className="max-w-xl">
             <h3 className="font-display text-2xl md:text-3xl leading-snug">{heading}</h3>
@@ -624,7 +579,7 @@ function Section({
 }) {
   return (
     <section id={id} className="py-12 md:py-16">
-      <div className="container-px mx-auto max-w-7xl">
+      <div className="container-px mx-auto max-w-[1440px] 2xl:max-w-[1600px]">
         <Reveal delay={0.1}>
         <div className="max-w-2xl mb-14">
           <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
@@ -644,7 +599,7 @@ function Section({
 function Solution() {
   return (
     <section id="solution" className="relative py-12 md:py-16 overflow-hidden">
-      <div className="container-px mx-auto max-w-7xl">
+      <div className="container-px mx-auto max-w-[1440px] 2xl:max-w-[1600px]">
         <Reveal delay={0.1}>
         <div className="max-w-3xl">
           <p className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-muted-foreground">
@@ -662,11 +617,11 @@ function Solution() {
         </Reveal>
 
         <Reveal delay={0.2}>
-        <div className="relative mt-12 rounded-3xl overflow-hidden border border-border bg-card" style={{ boxShadow: "var(--shadow-elev)" }}>
+        <div className="relative mt-12 rounded-3xl overflow-hidden border border-border bg-card mx-auto w-fit" style={{ boxShadow: "var(--shadow-elev)" }}>
           <img
             src={howKriyasetuWorks}
             alt="How Kriya Setu works — interactive simulations, NCERT-aligned content, real-world context, video explainers, and an empowered teacher in a real classroom"
-            className="w-full h-auto block"
+            className="max-w-full max-h-[75vh] h-auto object-contain block"
             loading="lazy"
           />
         </div>

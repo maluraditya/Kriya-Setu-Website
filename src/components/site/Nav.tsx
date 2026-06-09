@@ -26,7 +26,7 @@ export function Nav() {
         scrolled ? "backdrop-blur-md bg-background/75 border-b border-border" : "bg-transparent"
       }`}
     >
-      <div className="container-px mx-auto max-w-7xl flex items-center justify-between h-16">
+      <div className="container-px mx-auto max-w-[1440px] 2xl:max-w-[1600px] flex items-center justify-between h-16">
         <a href="#top" className="flex items-center gap-1 group">
           <img
             src="/logo.png"
@@ -66,7 +66,7 @@ export function Nav() {
 
       {open && (
         <div className="md:hidden border-t border-border bg-background/95 backdrop-blur">
-          <div className="container-px mx-auto max-w-7xl py-4 flex flex-col gap-3 text-sm">
+          <div className="container-px mx-auto max-w-[1440px] 2xl:max-w-[1600px] py-4 flex flex-col gap-3 text-sm">
             {links.map((l) => (
               <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="py-1.5">
                 {l.label}
