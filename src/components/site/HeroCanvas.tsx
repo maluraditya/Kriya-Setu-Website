@@ -34,7 +34,7 @@ export function HeroCanvas() {
     const ro = new ResizeObserver(resize);
     ro.observe(canvas);
 
-    // Build particles — "concept nodes" (larger, fewer) and "idea nodes" (small, many)
+    // Build particles - "concept nodes" (larger, fewer) and "idea nodes" (small, many)
     const concepts = 8;
     const nodes = 52;
     const particles: Particle[] = [];
@@ -143,7 +143,7 @@ export function HeroCanvas() {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
         if (p.kind === "concept") {
-          // Concept nodes — orange with a soft glow ring
+          // Concept nodes - orange with a soft glow ring
           ctx.fillStyle = "rgba(240,90,40,0.55)";
           ctx.fill();
           ctx.beginPath();

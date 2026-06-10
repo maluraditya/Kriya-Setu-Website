@@ -9,7 +9,7 @@ import { FrameworkScroll } from "@/components/site/FrameworkScroll";
 import { ShiftCarousel } from "@/components/site/ShiftCarousel";
 import { BookDemoProvider, useBookDemo } from "@/components/site/BookDemoDialog";
 import howKriyasetuWorks from "@/assets/how-kriyasetu-works-local.png";
-import experientialHero from "@/assets/experiential_learning_hero.png";
+import experientialHero from "@/assets/experiential_learning_hero.jpg";
 import { Reveal } from "@/components/site/Reveal";
 
 
@@ -17,19 +17,19 @@ import { Reveal } from "@/components/site/Reveal";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Kriya Setu — Bridging Knowledge and Real Competence" },
+      { title: "Kriya Setu - Bridging Knowledge and Real Competence" },
       {
         name: "description",
         content:
           "Kriya Setu helps institutions transform teaching and learning through experiential systems, conceptual clarity, and AI-enabled education.",
       },
-      { property: "og:title", content: "Kriya Setu — Experiential Learning Transformation" },
+      { property: "og:title", content: "Kriya Setu - Experiential Learning Transformation" },
       { property: "og:description", content: "An AI-powered experiential learning platform for institutions, teachers and students." },
-      { property: "og:image", content: "https://kriya-setu-website.vercel.app/og-image.png" },
+      { property: "og:image", content: "https://kriya-setu-website.vercel.app/og-image.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Kriya Setu — Experiential Learning Transformation" },
+      { name: "twitter:title", content: "Kriya Setu - Experiential Learning Transformation" },
       { name: "twitter:description", content: "An AI-powered experiential learning platform for institutions, teachers and students." },
-      { name: "twitter:image", content: "https://kriya-setu-website.vercel.app/og-image.png" },
+      { name: "twitter:image", content: "https://kriya-setu-website.vercel.app/og-image.jpg" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -113,9 +113,9 @@ function Experience() {
             We let you <em className="text-accent not-italic">feel</em> it.
           </h2>
           <p className="mt-5 text-muted-foreground text-lg leading-relaxed">
-            Add a proton — a new element appears. Add an electron — the atom calms.
+            Add a proton - a new element appears. Add an electron - the atom calms.
             This isn't a video. It's the same kind of moment Kriya Setu engineers
-            into every classroom: <span className="text-foreground italic">"oh — I get it."</span>
+            into every classroom: <span className="text-foreground italic">"oh - I get it."</span>
           </p>
         </div>
         </Reveal>
@@ -159,7 +159,7 @@ function Hero() {
         />
         {/* Floating educational artifacts */}
         <HeroFloaters />
-        {/* Yantra — softer, float */}
+        {/* Yantra - softer, float */}
         <Yantra className="absolute -right-48 -top-24 w-[900px] opacity-30 float-slow pointer-events-none" />
         {/* Vignette fade to bg at bottom */}
         <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-background to-transparent pointer-events-none" />
@@ -168,7 +168,7 @@ function Hero() {
       </div>
 
 
-      <div className="container-px mx-auto max-w-[1440px] 2xl:max-w-[1600px] flex-1 flex flex-col lg:grid lg:grid-cols-12 gap-6 lg:gap-10 xl:gap-14 lg:items-center">
+      <div className="container-px mx-auto max-w-[1440px] 2xl:max-w-[1600px] flex-1 flex flex-col justify-around lg:grid lg:grid-cols-12 gap-6 lg:gap-10 xl:gap-14 lg:items-center py-4 lg:py-0">
 
         {/* ── Text column (headline + desktop sub + desktop CTAs) ── */}
         <div className="order-1 lg:col-span-7 flex flex-col justify-center">
@@ -306,7 +306,7 @@ function Hero() {
       <div className="order-3 lg:hidden flex flex-col">
         <Reveal delay={0.3}>
           <p className="text-base text-muted-foreground leading-relaxed">
-            Experiential, curriculum-aligned learning — helping educators teach with clarity and students learn with meaning.
+            Experiential, curriculum-aligned learning - helping educators teach with clarity and students learn with meaning.
           </p>
         </Reveal>
         <Reveal delay={0.35}>
@@ -345,7 +345,7 @@ function Hero() {
 function Problem() {
   const items: { icon: string; title: string; desc: string }[] = [
     { icon: "📚", title: "Memory over meaning",     desc: "Students remember formulas. They rarely understand them." },
-    { icon: "🧱", title: "Weak foundations",         desc: "Concepts stack on shaky ground — and quietly collapse later." },
+    { icon: "🧱", title: "Weak foundations",         desc: "Concepts stack on shaky ground - and quietly collapse later." },
     { icon: "🎲", title: "Inconsistent depth",       desc: "The same chapter, taught five different ways across sections." },
     { icon: "📉", title: "Engagement fades",         desc: "Curiosity in week one. Compliance by week ten." },
   ];
@@ -354,7 +354,7 @@ function Problem() {
       id="problem"
       eyebrow="The reality"
       title={<>What teachers deal <em className="text-accent not-italic">with every day</em>.</>}
-      lead="Most classrooms are full of effort. The gap isn't intent — it's the system."
+      lead="Most classrooms are full of effort. The gap isn't intent - it's the system."
     >
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
         {items.map((it, idx) => (
@@ -382,7 +382,7 @@ function Shift() {
         <Yantra className="w-[600px]" />
       </div>
 
-      {/* Header — uses container padding */}
+      {/* Header - uses container padding */}
       <div className="container-px mx-auto max-w-[1440px] 2xl:max-w-[1600px] mb-10 md:mb-14">
         <div className="max-w-2xl">
           <Reveal delay={0.1}>
@@ -394,13 +394,13 @@ function Shift() {
               <em className="not-italic" style={{ color: "var(--brand-orange)" }}>building competence.</em>
             </h2>
             <p className="mt-5 text-muted-foreground leading-relaxed text-base md:text-lg">
-              Every dimension of the classroom transforms — swipe to see the shift.
+              Every dimension of the classroom transforms - swipe to see the shift.
             </p>
           </Reveal>
         </div>
       </div>
 
-      {/* Carousel — full bleed, handles its own padding */}
+      {/* Carousel - full bleed, handles its own padding */}
       <div className="mx-auto max-w-[1440px] 2xl:max-w-[1600px]">
         <Reveal delay={0.2}>
           <ShiftCarousel />
@@ -415,7 +415,7 @@ function Shift() {
 function How() {
   return (
     <Section id="how" eyebrow="The framework" title={<>Six steps from <em className="text-primary not-italic">concept</em> to competence.</>}
-      lead="Scroll. The framework reveals itself the same way a Kriya Setu lesson does — one node at a time, each building on the last.">
+      lead="Scroll. The framework reveals itself the same way a Kriya Setu lesson does - one node at a time, each building on the last.">
       <FrameworkScroll />
     </Section>
   );
@@ -432,7 +432,7 @@ function WhyInstitutions() {
     ["≡", "Consistency", "Same quality of teaching, every section, every term."],
     ["↗", "Outcomes", "Better internal scores, better board / entrance results."],
     ["⚘", "Faculty Enablement", "Teachers grow as designers of learning."],
-    ["∞", "Future Ready", "Thinking, doing, and adapting — not just remembering."],
+    ["∞", "Future Ready", "Thinking, doing, and adapting - not just remembering."],
   ];
   return (
     <section id="why" className="py-12 md:py-16 bg-secondary/50">
@@ -476,7 +476,7 @@ function Vision() {
           It should create <span className="text-accent">competence,</span> confidence, and curiosity.
         </p>
         <p className="mt-8 text-muted-foreground max-w-xl mx-auto leading-relaxed">
-          Kriya Setu exists to bridge the gap between knowledge and real understanding —
+          Kriya Setu exists to bridge the gap between knowledge and real understanding -
           where Indian wisdom of practice meets the precision of modern systems.
         </p>
         <div className="mt-10 inline-flex items-center gap-3 text-sm text-muted-foreground">
@@ -507,7 +507,7 @@ function CTA() {
             </h2>
             <p className="mt-5 text-background/70 max-w-lg leading-relaxed">
               Let’s shape a teaching and learning system designed around your
-              institution — your students, your faculty, your outcomes.
+              institution - your students, your faculty, your outcomes.
             </p>
           </div>
           <div className="md:col-span-5 relative flex flex-col gap-4">
@@ -610,7 +610,7 @@ function Solution() {
             One classroom. <em className="not-italic" style={{ color: "var(--brand-orange)" }}>Every student in flow.</em>
           </h2>
           <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
-            Kriya Setu equips the teacher with a curriculum-aligned experiential canvas — concepts come alive on the board,
+            Kriya Setu equips the teacher with a curriculum-aligned experiential canvas - concepts come alive on the board,
             every student follows along on their device, and learning shifts from listening to doing.
           </p>
         </div>
@@ -620,7 +620,7 @@ function Solution() {
         <div className="relative mt-12 rounded-3xl overflow-hidden border border-border bg-card mx-auto w-fit" style={{ boxShadow: "var(--shadow-elev)" }}>
           <img
             src={howKriyasetuWorks}
-            alt="How Kriya Setu works — interactive simulations, NCERT-aligned content, real-world context, video explainers, and an empowered teacher in a real classroom"
+            alt="How Kriya Setu works - interactive simulations, NCERT-aligned content, real-world context, video explainers, and an empowered teacher in a real classroom"
             className="max-w-full max-h-[75vh] h-auto object-contain block"
             loading="lazy"
           />

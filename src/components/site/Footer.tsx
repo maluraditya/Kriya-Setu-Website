@@ -1,4 +1,3 @@
-import { Mark } from "./Nav";
 
 export function Footer() {
   return (
@@ -6,11 +5,12 @@ export function Footer() {
       <div className="container-px mx-auto max-w-[1440px] 2xl:max-w-[1600px]">
         <div className="grid gap-12 md:gap-8 md:grid-cols-12 mb-16">
           <div className="md:col-span-5 pr-8">
-            <div className="flex items-center gap-3">
-              <Mark className="w-10 h-10" />
-              <span className="font-display text-xl font-bold tracking-tight" style={{ color: "var(--brand-blue)" }}>
-                Kriya Setu
-              </span>
+            <div className="flex items-center">
+              <img
+                src="/logo-wide.png"
+                alt="Kriya Setu"
+                className="h-9 w-auto object-contain"
+              />
             </div>
             <p className="mt-6 text-sm text-muted-foreground max-w-sm leading-relaxed">
               Bridging knowledge and real competence through experiential learning,

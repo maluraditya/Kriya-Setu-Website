@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 /**
  * Live pendulum simulation. Visitors tweak length / gravity / damping
- * and watch the period, energy, and trail change in real time —
+ * and watch the period, energy, and trail change in real time -
  * experiencing concept → visualisation → reflection on a single canvas.
  */
 export function PendulumLab() {
@@ -142,7 +142,7 @@ export function PendulumLab() {
         </div>
 
         <p className="text-xs text-muted-foreground mt-1">
-          Insight · Halve the length → period shrinks by √2, not 2. That's the lesson — discovered, not told.
+          Insight · Halve the length → period shrinks by √2, not 2. That's the lesson - discovered, not told.
         </p>
       </div>
     </div>

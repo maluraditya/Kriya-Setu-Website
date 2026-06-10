@@ -40,7 +40,7 @@ export const Route = createRootRoute({
       meta: [
         { charSet: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
-        { title: "Kriya Setu — Bridging Knowledge and Real Competence" },
+        { title: "Kriya Setu - Bridging Knowledge and Real Competence" },
         { name: "description", content: "AI-powered experiential learning platform helping institutions move from memorisation to mastery." },
         { name: "author", content: "KRIYASETU LLP" },
         { name: "keywords", content: "Kriya Setu, Experiential Learning, AI Education, Conceptual Clarity, EdTech, India Education, NEP 2020, School Curriculum" },
@@ -48,19 +48,19 @@ export const Route = createRootRoute({
         // Open Graph (WhatsApp, LinkedIn, Facebook)
         { property: "og:site_name", content: "Kriya Setu" },
         { property: "og:type", content: "website" },
-        { property: "og:title", content: "Kriya Setu — Bridging Knowledge and Real Competence" },
+        { property: "og:title", content: "Kriya Setu - Bridging Knowledge and Real Competence" },
         { property: "og:description", content: "AI-powered experiential learning platform helping institutions move from memorisation to mastery." },
-        { property: "og:image", content: `${getBaseUrl()}/og-image.png` },
-        { property: "og:image:type", content: "image/png" },
+        { property: "og:image", content: `${getBaseUrl()}/og-image.jpg` },
+        { property: "og:image:type", content: "image/jpeg" },
         { property: "og:image:width", content: "1200" },
         { property: "og:image:height", content: "630" },
-        { property: "og:image:alt", content: "Kriya Setu — Bridging Knowledge and Real Competence" },
+        { property: "og:image:alt", content: "Kriya Setu - Bridging Knowledge and Real Competence" },
         
         // Twitter
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: "Kriya Setu — Bridging Knowledge and Real Competence" },
+        { name: "twitter:title", content: "Kriya Setu - Bridging Knowledge and Real Competence" },
         { name: "twitter:description", content: "AI-powered experiential learning platform helping institutions move from memorisation to mastery." },
-        { name: "twitter:image", content: `${getBaseUrl()}/og-image.png` },
+        { name: "twitter:image", content: `${getBaseUrl()}/og-image.jpg` },
       ],
     links: [
       {

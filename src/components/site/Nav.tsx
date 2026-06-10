@@ -27,16 +27,12 @@ export function Nav() {
       }`}
     >
       <div className="container-px mx-auto max-w-[1440px] 2xl:max-w-[1600px] flex items-center justify-between h-16">
-        <a href="#top" className="flex items-center gap-1 group">
+        <a href="#top" className="flex items-center group">
           <img
-            src="/logo.png"
+            src="/logo-wide.png"
             alt="Kriya Setu"
-            className="h-12 w-12 object-contain"
-            style={{ mixBlendMode: "multiply" }}
+            className="h-10 md:h-11 w-auto object-contain"
           />
-          <span className="font-display text-xl font-bold tracking-tight" style={{ color: "var(--brand-blue)" }}>
-            Kriya Setu
-          </span>
         </a>
 
         <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">

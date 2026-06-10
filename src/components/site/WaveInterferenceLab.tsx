@@ -13,7 +13,7 @@ export function WaveInterferenceLab() {
   sepRef.current = separation;
   runRef.current = running;
 
-  // Canvas dimensions — low res for performance, CSS scales it up
+  // Canvas dimensions - low res for performance, CSS scales it up
   const W = 220;
   const H = 160;
 
@@ -134,8 +134,8 @@ export function WaveInterferenceLab() {
           </h3>
           <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
             Two identical wave sources radiating outward. Where peaks meet
-            peaks — <span className="text-foreground">brightness</span>. Where a
-            peak meets a trough —{" "}
+            peaks - <span className="text-foreground">brightness</span>. Where a
+            peak meets a trough -{" "}
             <span className="text-foreground/50">silence</span>. Drag the
             sliders.
           </p>
@@ -188,14 +188,14 @@ export function WaveInterferenceLab() {
             Those bright and dark bands are the same physics behind noise-canceling
             headphones, double-slit experiments, concert hall acoustics, and your
             WiFi dead spots. You've just{" "}
-            <span className="text-foreground">experienced</span> the principle —
+            <span className="text-foreground">experienced</span> the principle -
             not memorised it.
           </p>
         </div>
 
         <p className="text-xs text-muted-foreground">
           Insight · Move sources further apart → more interference bands appear.
-          That's Huygens' principle — discovered, not told.
+          That's Huygens' principle - discovered, not told.
         </p>
       </div>
     </div>

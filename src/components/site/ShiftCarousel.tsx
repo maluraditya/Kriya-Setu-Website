@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 /**
- * ShiftCarousel — lightweight, swipeable before→after carousel.
+ * ShiftCarousel - lightweight, swipeable before→after carousel.
  * Uses CSS scroll-snap (no library). Auto-advances every 5s.
  */
 
@@ -155,7 +155,7 @@ export function ShiftCarousel() {
                 </div>
               </div>
 
-              {/* Image — clean, no overlay */}
+              {/* Image - clean, no overlay */}
               <div className="relative aspect-[16/10] overflow-hidden">
                 <img
                   src={slide.image}
@@ -165,7 +165,7 @@ export function ShiftCarousel() {
                 />
               </div>
 
-              {/* Text content — separated from image */}
+              {/* Text content - separated from image */}
               <div className="p-5 md:p-6 flex flex-col gap-4 flex-1">
                 {/* Category pill */}
                 <span

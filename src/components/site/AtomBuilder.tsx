@@ -2,7 +2,7 @@ import { useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 /**
- * Build-an-Atom — playful chemistry/physics simulation.
+ * Build-an-Atom - playful chemistry/physics simulation.
  * Click + / − to add or remove protons, neutrons, electrons.
  * The nucleus pulses, electrons orbit on real shells (2,8,8,18 rule),
  * and the periodic-table identity emerges live.
@@ -16,20 +16,20 @@ const ELEMENTS = [
   "K", "Ca",
 ];
 const NAMES = [
-  "—", "Hydrogen", "Helium", "Lithium", "Beryllium", "Boron", "Carbon", "Nitrogen",
+  "-", "Hydrogen", "Helium", "Lithium", "Beryllium", "Boron", "Carbon", "Nitrogen",
   "Oxygen", "Fluorine", "Neon", "Sodium", "Magnesium", "Aluminium", "Silicon",
   "Phosphorus", "Sulfur", "Chlorine", "Argon", "Potassium", "Calcium",
 ];
 const FUN_FACT: Record<string, string> = {
   H: "Lightest element. Powers the sun.",
-  He: "Noble gas. Full outer shell — perfectly stable.",
+  He: "Noble gas. Full outer shell - perfectly stable.",
   C: "The backbone of all known life.",
   N: "78% of the air you're breathing right now.",
   O: "Lets you read this. Half of Earth's crust by mass.",
   Na: "One electron away from stability. Reacts violently with water.",
   Cl: "Pair me with sodium → table salt.",
   Fe: "Why your blood is red.",
-  Au: "Stable, lustrous, ductile — that's why it's worth a fortune.",
+  Au: "Stable, lustrous, ductile - that's why it's worth a fortune.",
 };
 
 const SHELLS = [2, 8, 8, 2]; // simplified shell capacities
@@ -78,7 +78,7 @@ export function AtomBuilder() {
           Don't memorise the periodic table. <em className="not-italic text-accent">Build it.</em>
         </h3>
         <p className="text-sm text-muted-foreground leading-relaxed">
-          Add a proton — a new element appears. Add an electron — the atom calms.
+          Add a proton - a new element appears. Add an electron - the atom calms.
           One missing? It becomes an ion. This is how chemistry was meant to be felt.
         </p>
       </div>
@@ -161,7 +161,7 @@ export function AtomBuilder() {
             Don't memorise the periodic table. <em className="not-italic text-accent">Build it.</em>
           </h3>
           <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-            Add a proton — a new element appears. Add an electron — the atom calms.
+            Add a proton - a new element appears. Add an electron - the atom calms.
             One missing? It becomes an ion. This is how chemistry was meant to be felt.
           </p>
         </div>

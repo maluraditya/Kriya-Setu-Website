@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 
 /**
- * Floating educational artifacts behind the hero —
- * formulas, glyphs, geometry, atoms — drifting and gently rotating.
+ * Floating educational artifacts behind the hero -
+ * formulas, glyphs, geometry, atoms - drifting and gently rotating.
  * Pure SVG + framer-motion. No images.
  */
 

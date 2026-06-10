@@ -8,7 +8,7 @@ const STEPS = [
     ringPct: 0,
     ringColor: "#94a3b8",
     headline: "Teachers work harder than ever.",
-    body: "Every term brings the same quiet frustration — full effort, incomplete understanding. The system was built for coverage, not depth.",
+    body: "Every term brings the same quiet frustration - full effort, incomplete understanding. The system was built for coverage, not depth.",
     tag: "The Gap",
   },
   {
@@ -18,7 +18,7 @@ const STEPS = [
     ringPct: 0.42,
     ringColor: "#60a5fa",
     headline: "Every concept becomes a journey.",
-    body: "Teachers get a complete, structured path — visualised, experiential, and consistent across every section and every term. No more improvising depth.",
+    body: "Teachers get a complete, structured path - visualised, experiential, and consistent across every section and every term. No more improvising depth.",
     tag: "The System",
   },
   {
@@ -28,7 +28,7 @@ const STEPS = [
     ringPct: 0.72,
     ringColor: "#fb923c",
     headline: "Students don't just learn. They own it.",
-    body: "When a student experiences a concept — feels it, applies it, debates it — they stop forgetting. Understanding replaces memorisation.",
+    body: "When a student experiences a concept - feels it, applies it, debates it - they stop forgetting. Understanding replaces memorisation.",
     tag: "The Shift",
   },
   {

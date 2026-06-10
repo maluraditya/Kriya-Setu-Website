@@ -123,7 +123,7 @@ export function BookDemoProvider({ children }: { children: ReactNode }) {
               {loading ? "Sending…" : "Request my demo →"}
             </button>
             <p className="text-[11px] text-muted-foreground text-center">
-              We respect your privacy. No spam — ever.
+              We respect your privacy. No spam - ever.
             </p>
           </form>
         </DialogContent>
