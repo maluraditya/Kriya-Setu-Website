@@ -11,6 +11,7 @@ import { BookDemoProvider, useBookDemo } from "@/components/site/BookDemoDialog"
 import howKriyasetuWorks from "@/assets/how-kriyasetu-works-local.png";
 import experientialHero from "@/assets/experiential_learning_hero.jpg";
 import { Reveal } from "@/components/site/Reveal";
+import { TrustedByMarquee } from "@/components/site/TrustedByMarquee";
 
 
 
@@ -49,6 +50,7 @@ function Index() {
       <div id="top" className="min-h-screen bg-background text-foreground">
         <Nav />
         <Hero />
+        <TrustedByMarquee />
         <Problem />
         <Solution />
         <Shift />
