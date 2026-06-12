@@ -504,10 +504,10 @@ function DidYouKnowBubble() {
     <div className="container-px mx-auto max-w-[1440px] flex justify-center pt-8 pb-4 relative z-10">
       <Reveal delay={0.1}>
         <div className="relative max-w-xl w-full mx-auto px-4">
-          
+
           {/* Main frame box with thin line-art border */}
           <div className="border border-foreground rounded-[1.5rem] py-5 px-6 md:px-8 bg-background relative shadow-sm">
-            
+
             {/* Title masking the border on the left */}
             <div className="absolute -top-3 left-8 bg-background px-2 text-sm sm:text-base font-sans font-bold tracking-tight text-foreground select-none uppercase">
               DID YOU KNOW?
@@ -525,7 +525,7 @@ function DidYouKnowBubble() {
 
                 {/* Bulb shape with hand-drawn round bulb color */}
                 <path d="M12 18C12 16.5 11 15 11 13.5C11 10.74 13.24 8.5 16 8.5C18.76 8.5 21 10.74 21 13.5C21 15 20 16.5 20 18H12Z" fill="#FBBF24" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-                
+
                 {/* Filament */}
                 <path d="M14.5 14L15 12.5H17L17.5 14" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
 
@@ -542,20 +542,20 @@ function DidYouKnowBubble() {
               <span className="font-bold text-foreground" style={{ color: "var(--brand-blue)" }}>
                 human
               </span>{" "}
-              attention span is only{" "}
+              attention span is now just{" "}
               <span className="font-extrabold text-foreground" style={{ color: "var(--brand-orange)" }}>
                 8.25 seconds
               </span>
               , which is less than the{" "}
               <span className="font-bold text-foreground" style={{ color: "var(--brand-blue)" }}>
-                goldfish
+                goldfish’s
               </span>
-              ’s{" "}
+              {" "}
               <span className="font-extrabold text-foreground" style={{ color: "var(--brand-orange)" }}>
                 9-second
               </span>
               .{" "}
-              <a 
+              <a
                 href="https://sambarecovery.com/rehab-blog/average-human-attention-span-statistics/"
                 target="_blank"
                 rel="noopener noreferrer"
